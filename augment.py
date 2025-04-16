@@ -1,83 +1,89 @@
 import json
 import sys
 import torch
+import re
 from transformers import LlamaTokenizer, LlamaForCausalLM
+
 
 def load_llama_model(model_path):
     """
-    Loads a local Llama-7B model from the specified directory.
+    Loads a local Llama model from the specified directory.
     """
+    if model_path.endswith(".gguf"):
+        raise ValueError("GGUF models are not supported with Hugging Face transformers. "
+                         "Use `llama-cpp-python` or `ctransformers` instead.")
+    
     tokenizer = LlamaTokenizer.from_pretrained(model_path)
     model = LlamaForCausalLM.from_pretrained(model_path, device_map="auto")
     return tokenizer, model
 
+
+def extract_json_from_output(output):
+    """
+    Attempts to extract the first JSON-like object from the model output.
+    """
+    try:
+        json_match = re.search(r"\{.*\}", output, re.DOTALL)
+        if json_match:
+            return json.loads(json_match.group(0))
+    except Exception:
+        pass
+
+    return {
+        "error": "Invalid JSON from model",
+        "raw_output": output
+    }
+
+
 def generate_augmented_explanation(tokenizer, model, sample):
     """
-    Generates an augmented explanation for a given sample using a Llama-7B model.
+    Generates an augmented explanation for a given sample using a Llama model.
     """
-    sample_id = sample.get("sample_id")
-    problem_statement = sample.get("input")
-    chain_of_thought = sample.get("output")  
-    tools = sample.get("tools")
-    gold_answer = sample.get("gold_answer")
+    problem_statement = sample.get("input", "")
+    chain_of_thought = sample.get("output", "")
+    tools = sample.get("tools", "")
+    gold_answer = sample.get("gold_answer", "")
 
     prompt = f"""You have the following problem statement:
-        {problem_statement}
+    {problem_statement}
+    {tools}
 
-        Chain of Thought (in JSON):
-        {chain_of_thought}
+    Chain of Thought (in JSON):
+    {chain_of_thought}
 
-        Tools (in JSON):
-        {tools}
+    Gold Answer:
+    {gold_answer}
 
-        Gold Answer:
-        {gold_answer}
+    Please produce an **augmented explanation** in the following JSON style:
 
-        Please produce an **augmented explanation** in the following JSON style:
+    ###Instruction: Provide a short user-level instruction about the problem and how it is solved.
+    ###Output: 
+    <<<domain>>>: The domain or context (e.g. 'Text language model'),
+    <<<api_call>>>: Example or relevant function used,
+    <<<api_provider>>>: The library or environment used,
+    <<<explanation>>>: Provide a clarifying explanation,
+    <<<code>>>: Provide a relevant code snippet, wrapped in triple backticks.
 
-        ###Instruction: Provide a short user-level instruction about the problem and how it is solved.
-        ###Output: 
-        <<<domain>>>: The domain or context (e.g. 'Text language model'),
-        <<<api_call>>>: Example or relevant function used,
-        <<<api_provider>>>: The library or environment used,
-        <<<explanation>>>: Provide a clarifying explanation,
-        <<<code>>>: Provide a relevant code snippet, wrapped in triple backticks.
-
-        The final response **must** be valid JSON.
+    The final response **must** be valid JSON.
     """
 
-    # Tokenize the prompt
-    inputs = tokenizer(prompt, return_tensors="pt")
-    input_ids = inputs["input_ids"].to(model.device)
+    inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
 
-    # Generate the augmented explanation with the model
     with torch.no_grad():
         output_ids = model.generate(
-            input_ids,
+            inputs["input_ids"],
             max_new_tokens=256,
             do_sample=True,
             temperature=0.7,
             top_k=50
         )
+
     decoded_output = tokenizer.decode(output_ids[0], skip_special_tokens=True)
 
-    # Attempt to isolate only the JSON portion that comes after our prompt.
-    if prompt in decoded_output:
-        explanation_raw = decoded_output.split(prompt, 1)[-1].strip()
-    else:
-        explanation_raw = decoded_output.strip()
+    # Try to isolate the model output portion
+    explanation_raw = decoded_output.split(prompt, 1)[-1].strip() if prompt in decoded_output else decoded_output.strip()
 
-    # Attempt to parse the explanation as JSON. 
-    # If it fails, fall back to storing the raw string.
-    try:
-        explanation_json = json.loads(explanation_raw)
-    except json.JSONDecodeError:
-        explanation_json = {
-            "error": "Invalid JSON from model",
-            "raw_output": explanation_raw
-        }
-
-    return explanation_json
+    return extract_json_from_output(explanation_raw)
 
 
 def main(input_file, output_file, model_path):
@@ -85,23 +91,17 @@ def main(input_file, output_file, model_path):
     Reads the input JSON, generates augmented explanations for each entry,
     and writes a new JSON file with the added data.
     """
-    # 1. Load the model & tokenizer
     tokenizer, model = load_llama_model(model_path)
 
-    # 2. Read input JSON
     with open(input_file, "r", encoding="utf-8") as f:
         data = json.load(f)
 
-    # 3. Process each sample
     augmented_data = []
     for sample in data:
         explanation = generate_augmented_explanation(tokenizer, model, sample)
-
-        # Attach the augmented explanation to the sample under a new key
         sample["augmented_explanation"] = explanation
         augmented_data.append(sample)
 
-    # 4. Write to output JSON
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump(augmented_data, f, indent=2)
 
