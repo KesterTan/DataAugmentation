@@ -71,13 +71,13 @@ def generate_augmented_explanation(tokenizer, model, sample):
 
     return extract_json_from_output(decoded_output)
 
-def main(input_file, output_file, local_model_dir):
+def main(input_file, output_file):
     """
     Reads the input JSON, generates augmented explanations for each entry,
     and writes a new JSON file with the added data.
     """
-    tokenizer = AutoTokenizer.from_pretrained(local_model_dir)
-    model = AutoModelForCausalLM.from_pretrained(local_model_dir, device_map="auto")
+    tokenizer = AutoTokenizer.from_pretrained("meta-llama/Meta-Llama-3-8B")
+    model = AutoModelForCausalLM.from_pretrained("meta-llama/Meta-Llama-3-8B")
 
     # Read the input JSON
     with open(input_file, "r", encoding="utf-8") as f:
@@ -96,12 +96,11 @@ def main(input_file, output_file, local_model_dir):
     print(f"Augmented data has been saved to {output_file}")
 
 if __name__ == "__main__":
-    if len(sys.argv) < 4:
-        print("Usage: python augment_data.py <input_json> <output_json> <local_model_dir>")
+    if len(sys.argv) < 3:
+        print("Usage: python augment_data.py <input_json> <output_json>")
         sys.exit(1)
 
     input_json = sys.argv[1]
     output_json = sys.argv[2]
-    local_model_dir = sys.argv[3]
 
-    main(input_json, output_json, local_model_dir)
+    main(input_json, output_json)
