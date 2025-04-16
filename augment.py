@@ -76,8 +76,8 @@ def main(input_file, output_file):
     Reads the input JSON, generates augmented explanations for each entry,
     and writes a new JSON file with the added data.
     """
-    tokenizer = AutoTokenizer.from_pretrained("meta-llama/Meta-Llama-3-8B")
-    model = AutoModelForCausalLM.from_pretrained("meta-llama/Meta-Llama-3-8B")
+    tokenizer = AutoTokenizer.from_pretrained("deepseek-ai/DeepSeek-R1-Distill-Llama-8B")
+    model = AutoModelForCausalLM.from_pretrained("deepseek-ai/DeepSeek-R1-Distill-Llama-8B")
 
     # Read the input JSON
     with open(input_file, "r", encoding="utf-8") as f:
