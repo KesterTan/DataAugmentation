@@ -1,22 +1,8 @@
 import json
 import sys
-import torch
 import re
-from transformers import LlamaTokenizer, LlamaForCausalLM
-
-
-def load_llama_model(model_path):
-    """
-    Loads a local Llama model from the specified directory.
-    """
-    if model_path.endswith(".gguf"):
-        raise ValueError("GGUF models are not supported with Hugging Face transformers. "
-                         "Use `llama-cpp-python` or `ctransformers` instead.")
-    
-    tokenizer = LlamaTokenizer.from_pretrained(model_path)
-    model = LlamaForCausalLM.from_pretrained(model_path, device_map="auto")
-    return tokenizer, model
-
+import torch
+from transformers import AutoTokenizer, AutoModelForCausalLM
 
 def extract_json_from_output(output):
     """
@@ -34,10 +20,9 @@ def extract_json_from_output(output):
         "raw_output": output
     }
 
-
 def generate_augmented_explanation(tokenizer, model, sample):
     """
-    Generates an augmented explanation for a given sample using a Llama model.
+    Generates an augmented explanation using the locally loaded DeepSeek model.
     """
     problem_statement = sample.get("input", "")
     chain_of_thought = sample.get("output", "")
@@ -45,8 +30,8 @@ def generate_augmented_explanation(tokenizer, model, sample):
     gold_answer = sample.get("gold_answer", "")
 
     prompt = f"""You have the following problem statement:
-    {problem_statement}
-    {tools}
+    {problem_statement} 
+    Tools: {tools}
 
     Chain of Thought (in JSON):
     {chain_of_thought}
@@ -72,7 +57,7 @@ def generate_augmented_explanation(tokenizer, model, sample):
     with torch.no_grad():
         output_ids = model.generate(
             inputs["input_ids"],
-            max_new_tokens=256,
+            max_new_tokens=512,
             do_sample=True,
             temperature=0.7,
             top_k=50
@@ -80,19 +65,21 @@ def generate_augmented_explanation(tokenizer, model, sample):
 
     decoded_output = tokenizer.decode(output_ids[0], skip_special_tokens=True)
 
-    # Try to isolate the model output portion
-    explanation_raw = decoded_output.split(prompt, 1)[-1].strip() if prompt in decoded_output else decoded_output.strip()
+    # Attempt to remove the original prompt from the output
+    if prompt in decoded_output:
+        decoded_output = decoded_output.split(prompt, 1)[-1].strip()
 
-    return extract_json_from_output(explanation_raw)
+    return extract_json_from_output(decoded_output)
 
-
-def main(input_file, output_file, model_path):
+def main(input_file, output_file, local_model_dir):
     """
     Reads the input JSON, generates augmented explanations for each entry,
     and writes a new JSON file with the added data.
     """
-    tokenizer, model = load_llama_model(model_path)
+    tokenizer = AutoTokenizer.from_pretrained(local_model_dir)
+    model = AutoModelForCausalLM.from_pretrained(local_model_dir, device_map="auto")
 
+    # Read the input JSON
     with open(input_file, "r", encoding="utf-8") as f:
         data = json.load(f)
 
@@ -102,19 +89,19 @@ def main(input_file, output_file, model_path):
         sample["augmented_explanation"] = explanation
         augmented_data.append(sample)
 
+    # Write the output JSON
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump(augmented_data, f, indent=2)
 
     print(f"Augmented data has been saved to {output_file}")
 
-
 if __name__ == "__main__":
     if len(sys.argv) < 4:
-        print("Usage: python augment_data.py <input_json> <output_json> <model_path>")
+        print("Usage: python augment_data.py <input_json> <output_json> <local_model_dir>")
         sys.exit(1)
 
     input_json = sys.argv[1]
     output_json = sys.argv[2]
-    llama_model_path = sys.argv[3]
+    local_model_dir = sys.argv[3]
 
-    main(input_json, output_json, llama_model_path)
+    main(input_json, output_json, local_model_dir)
