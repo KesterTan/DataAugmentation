@@ -30,33 +30,37 @@ def generate_augmented_explanation(tokenizer, model, sample):
     gold_answer = sample.get("gold_answer", "")
 
     prompt = f"""You have the following problem statement:
-    {problem_statement} 
-    Tools: {tools}
+        {problem_statement} 
+        Tools: {tools}
 
-    Chain of Thought (in JSON):
-    {chain_of_thought}
+        Chain of Thought (in JSON):
+        {chain_of_thought}
 
-    Gold Answer:
-    {gold_answer}
+        Gold Answer:
+        {gold_answer}
 
-    Please produce an **augmented explanation** in the following JSON style:
+        Please produce an **augmented explanation** in the following JSON style:
 
-    ###Instruction: Provide a short user-level instruction about the problem and how it is solved.
-    ###Output: 
-    <<<domain>>>: The domain or context (e.g. 'Text language model'),
-    <<<api_call>>>: Example or relevant function used,
-    <<<api_provider>>>: The library or environment used,
-    <<<explanation>>>: Provide a clarifying explanation,
-    <<<code>>>: Provide a relevant code snippet, wrapped in triple backticks.
+        ###Instruction: Provide a short user-level instruction about the problem and how it is solved.
+        ###Output: 
+        <<<domain>>>: The domain or context (e.g. 'Text language model'),
+        <<<api_call>>>: Example or relevant function used,
+        <<<api_provider>>>: The library or environment used,
+        <<<explanation>>>: Provide a clarifying explanation,
+        <<<code>>>: Provide a relevant code snippet, wrapped in triple backticks.
 
-    The final response **must** be valid JSON.
+        The final response **must** be valid JSON.
     """
+    if tokenizer.pad_token is None:
+        tokenizer.pad_token = tokenizer.eos_token
 
     inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
 
     output_ids = model.generate(
         inputs["input_ids"],
+        attention_mask=inputs["attention_mask"],
         max_new_tokens=512,
+        pad_token_id=tokenizer.pad_token_id,
         do_sample=True,
         temperature=0.7,
         top_k=50
