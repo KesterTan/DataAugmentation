@@ -54,16 +54,15 @@ def generate_augmented_explanation(tokenizer, model, sample):
 
     inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
 
-    with torch.no_grad():
-        output_ids = model.generate(
-            inputs["input_ids"],
-            max_new_tokens=512,
-            do_sample=True,
-            temperature=0.7,
-            top_k=50
-        )
+    output_ids = model.generate(
+        inputs["input_ids"],
+        max_new_tokens=512,
+        do_sample=True,
+        temperature=0.7,
+        top_k=50
+    )
 
-    decoded_output = tokenizer.decode(output_ids[0], skip_special_tokens=True)
+    decoded_output = tokenizer.decode(output_ids[0], skip_special_tokens=True, clean_up_tokenization_spaces=False)
 
     # Attempt to remove the original prompt from the output
     if prompt in decoded_output:
