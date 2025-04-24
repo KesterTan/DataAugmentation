@@ -1,27 +1,20 @@
+from transformers import AutoConfig, AutoModelForCausalLM
+import torch
 from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
-from transformers import AutoModelForCausalLM, AutoTokenizer
 
-model_name = "gorilla-llm/gorilla-7b-hf-v1-gguf"
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-
-model = AutoModelForCausalLM.from_pretrained(
-    model_name,
-    load_in_8bit=True,
-    device_map="auto"
-)
+config = AutoConfig.from_pretrained("../../gorilla-7b-hf-v0/config.json")
+model = AutoModelForCausalLM.from_config(config)
+model.load_state_dict(torch.load("../../gorilla-7b-hf-v0/pytorch_model-00002-of-00002.bin"))
 
 model = prepare_model_for_kbit_training(model)
-
 lora_config = LoraConfig(
-    r=16,                   
-    lora_alpha=32,           
-    target_modules=["q_proj", "v_proj"], 
-    lora_dropout=0.05,      
-    bias="none",              
+    r=16,
+    lora_alpha=32,
+    target_modules=["q_proj", "v_proj"],
+    lora_dropout=0.05,
+    bias="none",
     task_type="CAUSAL_LM"
 )
 
-# Wrap the model
 model = get_peft_model(model, lora_config)
-
-model.print_trainable_parameters()
+model.print_trainable_parameters() 
