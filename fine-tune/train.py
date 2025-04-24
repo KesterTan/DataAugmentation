@@ -1,4 +1,4 @@
-from transformers import AutoConfig, AutoModelForCausalLM
+from transformers import AutoConfig, AutoModelForCausalLM, AutoTokenizer
 import torch
 from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
 
