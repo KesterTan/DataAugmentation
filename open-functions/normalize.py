@@ -1,30 +1,16 @@
 import json
 
-input_file = "../fine-tuning/first_1500_entries_fixed.jsonl"
-output_file = "../fine-tuning/first_1500_entries_normalized.jsonl"
+fixed_lines = []
+with open("../fine-tuning/first_1500_entries-first.jsonl", "r") as f:
+    for line in f:
+        obj = json.loads(line)
+        for tool in obj.get("api_data", {}).get("tools", []):
+            output_params = tool.get("output_parameters", {}).get("properties", {})
+            for key, param in output_params.items():
+                if isinstance(param.get("type"), str):
+                    param["type"] = [param["type"]]  # make it a list
+        fixed_lines.append(json.dumps(obj))
 
-def normalize_type_field(entry):
-    try:
-        tools = entry.get("api_data", {}).get("tools", [])
-        for tool in tools:
-            output_params = tool.get("output_parameters", {})
-            properties = output_params.get("properties", {})
-            output_0 = properties.get("output_0", {})
-            output_type = output_0.get("type")
-
-            # If type is a string, make it a list
-            if isinstance(output_type, str):
-                output_0["type"] = [output_type]
-
-            # If type missing, do nothing
-    except Exception as e:
-        print(f"Error normalizing entry: {e}")
-    return entry
-
-with open(input_file, "r") as infile, open(output_file, "w") as outfile:
-    for line in infile:
-        entry = json.loads(line)
-        entry = normalize_type_field(entry)
-        outfile.write(json.dumps(entry) + "\n")
-
-print("✅ Fixed and saved to", output_file)
+with open("../fine-tuning/first_1500_entries-first-fixed.jsonl", "w") as f:
+    for line in fixed_lines:
+        f.write(line + "\n")
