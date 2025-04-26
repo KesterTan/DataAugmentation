@@ -22,7 +22,7 @@ lora_config = LoraConfig(
 model = get_peft_model(model, lora_config)
 model.print_trainable_parameters()
 
-dataset = load_dataset("json", data_files="../fine-tuning/first_1500_entries_fixed.jsonl")["train"]
+dataset = load_dataset("json", data_files="../fine-tuning/first_1500_entries_fixed.jsonl", split="train")
 
 def tokenize(example):
     prompt = example["input"]
