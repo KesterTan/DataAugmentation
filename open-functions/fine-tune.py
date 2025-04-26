@@ -33,16 +33,17 @@ def tokenize(example):
 tokenized_dataset = dataset.map(tokenize, remove_columns=dataset.column_names)
 
 training_args = TrainingArguments(
-    output_dir="./fine-tuned-gorilla",
+    output_dir="./results",
     per_device_train_batch_size=1,
     gradient_accumulation_steps=16,
+    learning_rate=2e-4,
     num_train_epochs=3,
-    logging_steps=10,
-    learning_rate=5e-5,
+    logging_steps=1,
+    save_steps=50,
+    save_total_limit=2,
     fp16=True,
-    save_total_limit=1,
-    save_strategy="epoch",
-    report_to="none"
+    bf16=False,
+    optim="adamw_torch_fused",
 )
 
 trainer = Trainer(
