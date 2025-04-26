@@ -1,7 +1,7 @@
 import json
 
-input_file = "DataAugmentation/fine-tuning/first_1500_entries.json"
-output_file = "DataAugmentation/fine-tuning/first_1500_entries_fixed.jsonl"
+input_file = "../fine-tuning/first_1500_entries.json"
+output_file = "../fine-tuning/first_1500_entries_fixed.jsonl"
 
 # Read the JSON array
 with open(input_file, "r") as f:
