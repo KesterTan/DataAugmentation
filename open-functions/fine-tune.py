@@ -22,10 +22,10 @@ lora_config = LoraConfig(
 model = get_peft_model(model, lora_config)
 model.print_trainable_parameters()
 
-dataset = load_dataset("json", data_files="../fine-tuning/first_1500_entries_normalized.jsonl", split="train")
+dataset = load_dataset("json", data_files="../fine-tuning/first_1500_entries-first-fixed-serialized.jsonl", split="train")
 
 def tokenize(example):
-    prompt = example["input"]
+    prompt = example["code"]
     inputs = tokenizer(prompt, padding="max_length", truncation=True, return_tensors="pt")
     inputs["labels"] = inputs["input_ids"].clone()
     return {key: val.squeeze() for key, val in inputs.items()}
