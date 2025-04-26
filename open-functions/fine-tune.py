@@ -34,8 +34,8 @@ tokenized_dataset = dataset.map(tokenize, remove_columns=dataset.column_names)
 
 training_args = TrainingArguments(
     output_dir="./fine-tuned-gorilla",
-    per_device_train_batch_size=4,
-    gradient_accumulation_steps=4,
+    per_device_train_batch_size=1,
+    gradient_accumulation_steps=16,
     num_train_epochs=3,
     logging_steps=10,
     learning_rate=5e-5,
