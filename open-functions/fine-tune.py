@@ -16,13 +16,13 @@ lora_config = LoraConfig(
     lora_dropout=0.1,
     bias="none",
     task_type="CAUSAL_LM",
-    target_modules=["q_proj", "v_proj", "k_proj", "o_proj"]  # Common for Gorilla (LLama-like)
+    target_modules=["q_proj", "v_proj", "k_proj", "o_proj"]
 )
 
 model = get_peft_model(model, lora_config)
 model.print_trainable_parameters()
 
-dataset = load_dataset("json", data_files="../fine-tuning/first_1500_entries_fixed.jsonl", split="train")
+dataset = load_dataset("json", data_files="../fine-tuning/first_1500_entries_normalized.jsonl", split="train")
 
 def tokenize(example):
     prompt = example["input"]

@@ -1,7 +1,7 @@
 import json
 
-input_file = "DataAugmentation/fine-tuning/first_1500_entries_fixed.jsonl"
-output_file = "DataAugmentation/fine-tuning/first_1500_entries_normalized.jsonl"
+input_file = "../fine-tuning/first_1500_entries_fixed.jsonl"
+output_file = "../fine-tuning/first_1500_entries_normalized.jsonl"
 
 def normalize_type_field(entry):
     try:
