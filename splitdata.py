@@ -1,7 +1,7 @@
 import json
 
 # Path to the original JSON file
-input_path = "1-shot-eval/one_shot_augmented_output.json"
+input_path = "display-all-training-data.json"
 
 # Load the JSON data from the file
 with open(input_path, "r") as f:

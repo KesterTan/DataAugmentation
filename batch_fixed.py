@@ -35,7 +35,7 @@ model.eval()
 # I/O paths
 # ────────────────────────────────────────────────────────────────────
 input_json_path  = "1-shot-eval/last_360_entries.json"   # your source file
-output_json_path = "one-shot-eval_results.json"         # where to write results
+output_json_path = "one-shot-eval_results2.json"         # where to write results
 
 with open(input_json_path, "r") as f:
     data = json.load(f)
@@ -58,9 +58,9 @@ for sample in tqdm(data, desc="Running inference"):
     system = "You are an AI programming assistant, utilizing the Gorilla LLM model, developed by Gorilla LLM, and you only answer questions related to computer science. For politically sensitive questions, security and privacy issues, and other non-computer science questions, you will refuse to answer."
 
     prompt
-    prompt_text = (prompt.strip()
-        # "{system}\n### Instruction: <<question>> " + prompt.strip() +       
-        # "\n### Response:"                      
+    prompt_text = (
+        "{system}\n### Instruction: <<question>> " + prompt.strip() +       
+        "\n### Response:"                      
     )
     """
     prompt_text = (
