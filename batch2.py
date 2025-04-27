@@ -53,12 +53,18 @@ for sample in tqdm(data, desc="Running inference"):
         prompt = sample["instruction"]
     else:
         raise ValueError("Sample missing 'text' or 'instruction' field")
-
-    # 1️⃣  Add the chat template expected by Gorilla
+    
+    # 1️⃣ Add the chat template expected by Gorilla
+    prompt_text = (
+        "{system}\n### Instruction: <<question>> " + prompt.strip() +          # user message
+        "\n### Response:"                       # assistant cue
+    )
+    """
     prompt_text = (
         "###USER: " + prompt.strip() +          # user message
         "\n###ASSISTANT:"                       # assistant cue
     )
+    """
 
     inputs = tokenizer(prompt_text, return_tensors="pt").to(device)
 
