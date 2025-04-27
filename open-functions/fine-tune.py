@@ -55,7 +55,7 @@ training_args = TrainingArguments(
     save_steps=200,
     save_total_limit=3,
     fp16=True,
-    bf16=False,
+    bf16=True,
     optim="adamw_torch_fused",
 )
 
@@ -63,7 +63,8 @@ trainer = Trainer(
     model=model,
     args=training_args,
     train_dataset=tokenized_dataset,
-    tokenizer=tokenizer
+    tokenizer=tokenizer,
+    max_length = 3096,
 )
 
 trainer.train()
