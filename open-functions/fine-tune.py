@@ -6,6 +6,8 @@ from datasets import load_dataset
 import os
 os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
 
+torch.cuda.empty_cache()
+
 model_name = "gorilla-llm/gorilla-openfunctions-v2"
 
 tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
@@ -17,14 +19,14 @@ model = AutoModelForCausalLM.from_pretrained(model_name, config=config, torch_dt
 model = prepare_model_for_kbit_training(model)
 
 lora_config = LoraConfig(
-    r=16,                     # Increase rank
-    lora_alpha=32,             # Increase alpha
+    r=16,
+    lora_alpha=32,
     lora_dropout=0.05,
     bias="none",
     task_type="CAUSAL_LM",
     target_modules=["q_proj", "v_proj", "k_proj", "o_proj", "up_proj", "down_proj", "gate_proj"],
-    use_longlora=True,         # 👈 This activates LongLoRA
-    max_position_embeddings=4096 # 👈 Extend context length
+    use_longlora=True,
+    max_position_embeddings=4096
 )
 
 model = get_peft_model(model, lora_config)
@@ -43,12 +45,12 @@ tokenized_dataset = dataset.map(tokenize, remove_columns=dataset.column_names)
 
 training_args = TrainingArguments(
     output_dir="./results",
-    per_device_train_batch_size=2,     # Try 2 if memory allows
-    gradient_accumulation_steps=8,     # Keep effective batch size
-    learning_rate=5e-5,                # Lower LR for more stability
-    num_train_epochs=5,                # 5 epochs (you don't have many examples)
-    warmup_ratio=0.1,                  # Warmup helps convergence
-    lr_scheduler_type="cosine",         # Cosine scheduler helps
+    per_device_train_batch_size=1,     
+    gradient_accumulation_steps=8, 
+    learning_rate=5e-5, 
+    num_train_epochs=5,  
+    warmup_ratio=0.1,  
+    lr_scheduler_type="cosine",
     logging_steps=10,
     save_steps=200,
     save_total_limit=3,
