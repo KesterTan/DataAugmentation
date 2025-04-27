@@ -20,7 +20,7 @@ model = prepare_model_for_kbit_training(model)
 
 lora_config = LoraConfig(
     r=16,
-    lora_alpha=32,
+    lora_alpha=16,
     lora_dropout=0.05,
     bias="none",
     task_type="CAUSAL_LM",
@@ -48,7 +48,7 @@ training_args = TrainingArguments(
     per_device_train_batch_size=1,
     gradient_accumulation_steps=8,
     learning_rate=5e-5,
-    num_train_epochs=3,
+    num_train_epochs=5,
     warmup_ratio=0.1,
     lr_scheduler_type="cosine",
     logging_steps=10,
