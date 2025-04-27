@@ -1,0 +1,84 @@
+[
+  [
+    {
+      "name": "replace_title",
+      "arguments": {
+        "text": "\"Mr. John\""
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "generate_char",
+      "arguments": {
+        "": ""
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "count_uppercase_letters",
+      "arguments": {
+        "string": "'Hello",
+        "World!": "World!'"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "40",
+        "arg_1": "80*0.08"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "divide",
+      "arguments": {
+        "arg_0": "4/5*30",
+        "arg_1": "40*0.8"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "reminder",
+      "arguments": {
+        "arg_0": "3^50",
+        "arg_1": "7"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "divide",
+      "arguments": {
+        "arg_0": "16",
+        "arg_1": "4"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "divide",
+      "arguments": {
+        "arg_0": "16",
+        "arg_1": "4).result"
+      },
+      "label": "var1"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "arg_0": "var1.output",
+        "arg_1": "3"
+      },
+      "label": "var2"
+    }
+  ]
+]

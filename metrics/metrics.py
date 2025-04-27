@@ -1,69 +1,113 @@
 import json
 import pandas as pd
-from tqdm import tqdm
+from sklearn.metrics import f1_score, precision_score, recall_score
+from sklearn.preprocessing import MultiLabelBinarizer
+binarizer = MultiLabelBinarizer()
 
-nestful = "testing/nestful_data.json"
-result = "testing/results_last_360.json"
+# result = "in-context-eval_results.json"
+
+result = "1-shot-eval/try_two_results.json"
 
 df = pd.read_parquet("hf://datasets/ibm-research/nestful/data/train-00000-of-00001.parquet")
 
 nestful_data = df[-361:]
 
-print(df[-361:]['output'].iloc[0])
-
-s = df[-361:]['output'].iloc[0]
-
-json_array = json.loads(s)
-
-for d in json_array:
-    print(d)
-
-
-
-
-# with open(nestful, "r") as f:
-#     nestful_data = json.load(f)
-
 with open(result, "r") as f:
     result_data = json.load(f)
 
 
+data = []
 
-# for d in nestful_data[-360:][:10]:
+def parse_func(text, label):
+    p = text.find('(')
+    if p == -1:
+        print("Parsing error")
+    
+    function = {"name" : text[:p]}
+    output = []
 
-#     # sample_id, input, output, tools, gold_answer
-#     # print(d["input"])
-#     # print(d["input"])
-#     output = d['output']
-#     # functions = [output[i]["name"] for i in range(len(output))]
-#     # print(functions)
-#     # for function in output:
+    params = text[p+1:len(text) - 1].split(", ")
+    args = {}
 
-for i in range(5):
+    i = 0
+    while i < len(params):
+        params[i] = params[i].strip()
+        e = params[i].find("=")
+        if e == -1:
+            print("Parsing error")
 
-    question = result_data[i]["questions"]
-    response = result_data[i]["response"]
+        key = params[i][:e].strip()
+        value = params[i][e+1:].strip()
 
-    index = question.find('Use this API documentation')
-    input = question.strip()[9:index - 4]
-    if not (nestful_data['input'].iloc[i] == input):
-        print("ummmm")
+        if "(" in value:
+            i += 1
+            count = 1
+            nested = value
+            while count != 0:
+                if ')' in params[i]:
+                    count -= 1
+                elif '(' in params[i]:
+                    count += 1
+                nested += ", " + params[i]
+                i += 1
+            
+            res = parse_func(nested, label)
+            output = res
+
+            value = "var" + str(label) + ".output"
+            label += 1
+        else:
+            i += 1
+        
+        args[key] = value
+    
+
+    function["arguments"] = args
+    function["label"] = "var" + str(label)
+
+    return output + [function]
+
+
+for i in range(len(result_data)):
+
+    input = result_data[i]["input"]
+    pred_output = result_data[i]["output"]
+
+    index = input.find('Use this API documentation')
+    input = input.strip()[:index-4]
+    # if not (nestful_data['input'].iloc[i] == input):
+    #     continue
+
+    pred_output = pred_output.strip()[12:]
+
+    gold_output = json.loads(nestful_data['output'].iloc[i])
+    gold_func_calls = [gold_output[i]["name"] for i in range(len(gold_output))]
+
+    if "Error" in pred_output:
         continue
 
+    pred_output = pred_output.split("<<function>>")
+    
+    pred_dict_list = []
+    for pred in pred_output:
+        pred_dict_list += parse_func(pred, len(pred_dict_list))
 
-    real_output = json.loads(nestful_data['output'].iloc[i])
-    functions = [real_output[i]["name"] for i in range(len(real_output))]
-    pred_output = "" # FILL THIS IN LATER????
-    correct_count = 0
-    for f in functions:
-        if f in pred_output:
-            correct_count += 0
+    data.append(pred_dict_list)
+
+output_path = "metrics/parsed.json"
+with open(output_path, "w") as f:
+    json.dump(data, f, indent=2)
+
+output_path
+
+    # f1_score(binarizer.transform(real_output),
+    #                                   binarizer.transform(pred_output),
+    #                                   average='macro')
 
     
 
 
 
-    index = response.find("<<<code>>>")
 
 
     # print(response)
