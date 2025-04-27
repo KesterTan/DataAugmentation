@@ -24,7 +24,7 @@ lora_config = LoraConfig(
     lora_dropout=0.05,
     bias="none",
     task_type="CAUSAL_LM",
-    target_modules=["q_proj", "v_proj", "k_proj", "o_proj", "up_proj", "down_proj"],
+    target_modules=["q_proj", "v_proj", "k_proj", "o_proj"],
     use_longlora=True,
     max_position_embeddings=4096
 )
