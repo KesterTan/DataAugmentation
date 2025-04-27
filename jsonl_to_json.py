@@ -1,8 +1,8 @@
 import json
 import os
 
-input_file = "in-context-eval/try_two.jsonl"
-output_file = "in-context-eval/try_two.json"
+input_file = "NESTFUL-main/data_v2/nestful_data.jsonl"
+output_file = "testing"
 
 # Ensure the output folder exists
 os.makedirs(output_file, exist_ok=True)
