@@ -36,7 +36,7 @@ dataset = load_dataset("json", data_files="../fine-tuning/first_1500_entries-fir
 
 def tokenize(example):
     prompt = example["code"]
-    inputs = tokenizer(prompt, padding="longest", truncation=True, return_tensors="pt", max_length=2048)
+    inputs = tokenizer(prompt, padding="max_length", truncation=True, max_length=3072, return_tensors="pt")
     inputs["labels"] = inputs["input_ids"].clone()
     inputs["labels"][inputs["attention_mask"] == 0] = -100
     return {key: val.squeeze() for key, val in inputs.items()}
