@@ -3,39 +3,54 @@ import torch
 from transformers import (
     AutoModelForCausalLM,
     AutoTokenizer,
-    BitsAndBytesConfig          # NEW
+    BitsAndBytesConfig
 )
+from peft import PeftModel
 from tqdm import tqdm
 
 # ────────────────────────────────────────────────────────────────────
 # Model & quantization setup
 # ────────────────────────────────────────────────────────────────────
-# Load model and tokenizer with 4-bit quantization using bitsandbytes
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-model_name = "gorilla-llm/gorilla-openfunctions-v2"
+# Hugging Face model name
+base_model_name = "gorilla-llm/gorilla-openfunctions-v2"
+
+adapter_model_path = "./fine-tuned-gorilla"
 
 bnb_config = BitsAndBytesConfig(
-    load_in_4bit=True,                  # 4-bit weights
-    bnb_4bit_quant_type="nf4",          # "nf4" or "fp4"
-    bnb_4bit_use_double_quant=True,     # second quantization step on weights
-    bnb_4bit_compute_dtype=torch.bfloat16  # computation in bf16 (fp16 also works)
+    load_in_4bit=True,
+    bnb_4bit_quant_type="nf4",
+    bnb_4bit_use_double_quant=True,
+    bnb_4bit_compute_dtype=torch.bfloat16
 )
 
-tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
-model = AutoModelForCausalLM.from_pretrained(
-    model_name,
-    quantization_config=bnb_config,
-    device_map="auto",                  # let Accelerate split layers across GPUs / RAM
+tokenizer = AutoTokenizer.from_pretrained(
+    adapter_model_path,
     trust_remote_code=True
+)
+
+# Load base model with 4-bit quantization
+model = AutoModelForCausalLM.from_pretrained(
+    base_model_name,
+    quantization_config=bnb_config,
+    device_map="auto",
+    trust_remote_code=True
+)
+
+# Load adapter weights (LoRA) on top of base model
+model = PeftModel.from_pretrained(
+    model,
+    adapter_model_path,
+    device_map="auto"
 )
 model.eval()
 
 # ────────────────────────────────────────────────────────────────────
 # I/O paths
 # ────────────────────────────────────────────────────────────────────
-input_json_path  = "in-context-eval/last_360_entries.json"   # your source file
-output_json_path = "in-context-eval_results.json"         # where to write results
+input_json_path  = "../in-context-eval/last_360_entries.json"
+output_json_path = "../in-context-eval_results.json"
 
 with open(input_json_path, "r") as f:
     data = json.load(f)
@@ -46,7 +61,6 @@ with open(input_json_path, "r") as f:
 outputs = []
 
 for sample in tqdm(data, desc="Running inference"):
-    # Accept either "text" or "instruction" keys
     if "text" in sample:
         prompt = sample["text"]
     elif "instruction" in sample:
@@ -54,19 +68,12 @@ for sample in tqdm(data, desc="Running inference"):
     else:
         raise ValueError("Sample missing 'text' or 'instruction' field")
 
-    
     system = "You are an AI programming assistant, utilizing the Gorilla LLM model, developed by Gorilla LLM, and you only answer questions related to computer science. For politically sensitive questions, security and privacy issues, and other non-computer science questions, you will refuse to answer."
 
     prompt_text = (
-        "{system}\n### Instruction: <<question>> " + prompt.strip() +          # user message
-        "\n### Response:"                       # assistant cue
+        "{system}\n### Instruction: <<question>> " + prompt.strip() +
+        "\n### Response:"
     )
-    """
-    prompt_text = (
-        "###USER: " + prompt.strip() +          # user message
-        "\n###ASSISTANT:"                       # assistant cue
-    )
-    """
 
     inputs = tokenizer(prompt_text, return_tensors="pt").to(device)
 
@@ -74,17 +81,15 @@ for sample in tqdm(data, desc="Running inference"):
         generated_ids = model.generate(
             **inputs,
             max_new_tokens=1024,
-            do_sample=False,          # greedy decoding
+            do_sample=False,
             eos_token_id=tokenizer.eos_token_id
         )
 
-    # 2️⃣  Strip the prompt tokens before decoding
     prompt_length = inputs["input_ids"].shape[1]
-    answer_ids = generated_ids[0][prompt_length:]           # keep only new tokens
+    answer_ids = generated_ids[0][prompt_length:]
     answer_text = tokenizer.decode(answer_ids, skip_special_tokens=True)
 
     outputs.append({"input": prompt, "output": answer_text})
-
 
 # ────────────────────────────────────────────────────────────────────
 # Save results
