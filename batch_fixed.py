@@ -34,8 +34,8 @@ model.eval()
 # ────────────────────────────────────────────────────────────────────
 # I/O paths
 # ────────────────────────────────────────────────────────────────────
-input_json_path  = "in-context-eval/try_two.json"   # your source file
-output_json_path = "inference_outputs.json"         # where to write results
+input_json_path  = "in-context-eval/last_360_entries.json"   # your source file
+output_json_path = "in-context-eval_results.json"         # where to write results
 
 with open(input_json_path, "r") as f:
     data = json.load(f)
