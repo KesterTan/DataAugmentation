@@ -2,11 +2,14 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, TrainingArguments,
 import torch
 from peft import prepare_model_for_kbit_training, LoraConfig, get_peft_model
 from datasets import load_dataset
+import gc
 
 import os
 os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
 
 torch.cuda.empty_cache()
+
+gc.collect()
 
 model_name = "gorilla-llm/gorilla-openfunctions-v2"
 
@@ -20,11 +23,11 @@ model = prepare_model_for_kbit_training(model)
 
 lora_config = LoraConfig(
     r=16,
-    lora_alpha=16,
+    lora_alpha=32,
     lora_dropout=0.05,
     bias="none",
     task_type="CAUSAL_LM",
-    target_modules=["q_proj", "v_proj", "k_proj", "o_proj"],
+    target_modules=["q_proj", "v_proj", "k_proj", "o_proj", "up_proj", "down_proj"],
     use_longlora=True,
     max_position_embeddings=4096
 )
