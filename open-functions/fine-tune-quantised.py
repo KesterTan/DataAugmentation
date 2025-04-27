@@ -37,12 +37,13 @@ model = prepare_model_for_kbit_training(model)
 
 # --- Apply LoRA ---
 lora_config = LoraConfig(
-    r=8,
-    lora_alpha=16,
+    r=16,
+    lora_alpha=64,
     lora_dropout=0.1,
     bias="none",
+    use_longlora=True,
     task_type="CAUSAL_LM",
-    target_modules=["q_proj", "v_proj", "k_proj", "o_proj"],
+    target_modules=["q_proj", "v_proj", "k_proj", "o_proj", "up_proj", "down_proj", "gate_proj"]
 )
 model = get_peft_model(model, lora_config)
 model.print_trainable_parameters()
@@ -53,7 +54,7 @@ dataset = load_dataset("json", data_files=dataset_path, split="train")
 # --- Tokenization function ---
 def tokenize(example):
     prompt = example["code"]
-    model_inputs = tokenizer(prompt, max_length=512, padding="max_length", truncation=True)
+    model_inputs = tokenizer(prompt, max_length=4096, padding="max_length", truncation=True)
     model_inputs["labels"] = model_inputs["input_ids"].copy()
     return model_inputs
 
@@ -67,6 +68,8 @@ training_args = TrainingArguments(
     gradient_accumulation_steps=16,
     learning_rate=2e-4,
     num_train_epochs=3,
+    lr_scheduler_type="cosine",
+    warmup_steps=100,
     logging_steps=1,
     save_steps=50,
     save_total_limit=2,
