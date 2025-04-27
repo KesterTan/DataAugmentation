@@ -36,7 +36,7 @@ dataset = load_dataset("json", data_files="../fine-tuning/first_1500_entries-fir
 
 def tokenize(example):
     prompt = example["code"]
-    inputs = tokenizer(prompt, padding="max_length", truncation=True, max_length=4096, return_tensors="pt")
+    inputs = tokenizer(prompt, padding="longest", truncation=True, return_tensors="pt")
     inputs["labels"] = inputs["input_ids"].clone()
     inputs["labels"][inputs["attention_mask"] == 0] = -100
     return {key: val.squeeze() for key, val in inputs.items()}
@@ -45,11 +45,11 @@ tokenized_dataset = dataset.map(tokenize, remove_columns=dataset.column_names)
 
 training_args = TrainingArguments(
     output_dir="./results",
-    per_device_train_batch_size=1,     
-    gradient_accumulation_steps=8, 
-    learning_rate=5e-5, 
-    num_train_epochs=5,  
-    warmup_ratio=0.1,  
+    per_device_train_batch_size=1,
+    gradient_accumulation_steps=8,
+    learning_rate=5e-5,
+    num_train_epochs=5,
+    warmup_ratio=0.1,
     lr_scheduler_type="cosine",
     logging_steps=10,
     save_steps=200,
@@ -68,4 +68,7 @@ trainer = Trainer(
 
 trainer.train()
 model.save_pretrained("fine-tuned-gorilla-v2")
+
+model.gradient_checkpointing_enable()
+
 tokenizer.save_pretrained("fine-tuned-gorilla-v2")
