@@ -2,6 +2,13 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, TrainingArguments,
 import torch
 from peft import prepare_model_for_kbit_training, LoraConfig, get_peft_model
 from datasets import load_dataset
+import bitsandbytes as bnb
+
+print(torch.__version__)              # Should be like '2.1.0' or '2.2.0'
+print(torch.cuda.is_available())       # Should be True
+print(torch.cuda.get_device_name(0))    # Should show 'A10G'
+print(bnb.functional.lib)              # Should NOT error
+
 
 # --- Settings ---
 model_name = "gorilla-llm/gorilla-openfunctions-v2"
