@@ -29,4 +29,3 @@ with open(output_json_file, 'w') as json_file:
     json.dump(data, json_file, indent=4)
 
 print(f"Converted {input_file} to {output_json_file}")
-
