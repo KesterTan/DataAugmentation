@@ -15,7 +15,6 @@ lora_config = LoraConfig(
     lora_alpha=32,
     lora_dropout=0.1,
     bias="none",
-    use_longlora=True,
     task_type="CAUSAL_LM",
     target_modules=["q_proj", "v_proj", "k_proj", "o_proj", "up_proj", "down_proj", "gate_proj"]
 )
