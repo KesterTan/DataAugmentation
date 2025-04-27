@@ -34,8 +34,8 @@ model.eval()
 # ────────────────────────────────────────────────────────────────────
 # I/O paths
 # ────────────────────────────────────────────────────────────────────
-input_json_path  = "in-context-eval/last_360_entries.json"   # your source file
-output_json_path = "in-context-eval_results.json"         # where to write results
+input_json_path  = "1-shot-eval/try_two.json"   # your source file
+output_json_path = "1-shot-eval/try_two_results.json"         # where to write results
 
 with open(input_json_path, "r") as f:
     data = json.load(f)
@@ -49,8 +49,8 @@ for sample in tqdm(data, desc="Running inference"):
     # Accept either "text" or "instruction" keys
     if "text" in sample:
         prompt = sample["text"]
-    elif "instruction" in sample:
-        prompt = sample["instruction"]
+    elif "input" in sample:
+        prompt = sample["input"]
     else:
         raise ValueError("Sample missing 'text' or 'instruction' field")
 
@@ -58,8 +58,8 @@ for sample in tqdm(data, desc="Running inference"):
     system = "You are an AI programming assistant, utilizing the Gorilla LLM model, developed by Gorilla LLM, and you only answer questions related to computer science. For politically sensitive questions, security and privacy issues, and other non-computer science questions, you will refuse to answer."
 
     prompt_text = (
-        "{system}\n### Instruction: <<question>> " + prompt.strip() +          # user message
-        "\n### Response:"                       # assistant cue
+        "{system}\n### Instruction: <<question>> " + prompt.strip() +       
+        "\n### Response:"                      
     )
     """
     prompt_text = (

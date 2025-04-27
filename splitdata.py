@@ -1,7 +1,7 @@
 import json
 
 # Path to the original JSON file
-input_path = "1-shot-eval/in-context-1-shot.json"
+input_path = "1-shot-eval/one_shot_augmented_output.json"
 
 # Load the JSON data from the file
 with open(input_path, "r") as f:
@@ -12,7 +12,7 @@ rest = data[-360:]
 # rest = data[:-360]
 
 # Path to the output JSON file
-output_path = "first_1500_entries.json"
+output_path = "updated_last_360.json"
 
 # Save the last 360 entries to a new file
 with open(output_path, "w") as f:
