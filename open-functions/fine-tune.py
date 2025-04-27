@@ -2,10 +2,6 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, TrainingArguments,
 import torch
 from peft import prepare_model_for_kbit_training, LoraConfig, get_peft_model
 from datasets import load_dataset
-import gc
-
-torch.cuda.empty_cache()
-gc.collect()
 
 model_name = "gorilla-llm/gorilla-openfunctions-v2"
 
