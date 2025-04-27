@@ -46,7 +46,7 @@ tokenized_dataset = dataset.map(tokenize, remove_columns=dataset.column_names)
 training_args = TrainingArguments(
     output_dir="./results",
     per_device_train_batch_size=1,
-    gradient_accumulation_steps=8,
+    gradient_accumulation_steps=16,
     learning_rate=5e-5,
     num_train_epochs=5,
     warmup_ratio=0.1,
