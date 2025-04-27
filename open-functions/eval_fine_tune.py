@@ -50,7 +50,7 @@ model.eval()
 # I/O paths
 # ────────────────────────────────────────────────────────────────────
 input_json_path  = "../in-context-eval/last_360_entries.json"
-output_json_path = "../in-context-eval_results.json"
+output_json_path = "../in-context-eval_results-fine-tune.json"
 
 with open(input_json_path, "r") as f:
     data = json.load(f)
