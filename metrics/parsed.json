@@ -1,27 +1,3910 @@
 [
   [
     {
-      "name": "replace_title",
+      "name": "multiply",
       "arguments": {
-        "text": "\"Mr. John\""
+        "arg_0": "2/5",
+        "arg_1": "350"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "350",
+        "arg_1": "var0.output"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "generate_power_of_two_list",
+      "arguments": {
+        "n": "5"
       },
       "label": "var0"
     }
   ],
   [
     {
-      "name": "generate_char",
+      "name": "square_area",
       "arguments": {
-        "": ""
+        "arg_0": "10"
       },
       "label": "var0"
     }
   ],
   [
     {
-      "name": "count_uppercase_letters",
+      "name": "subtract",
       "arguments": {
-        "string": "'Hello",
+        "arg_0": "45",
+        "arg_1": "45"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "convert_integer_to_byte_array_and_reverse",
+      "arguments": {
+        "integer": "12345"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "process_file_path",
+      "arguments": {
+        "input_file_path": "\"example.txt\""
+      },
+      "label": "var1"
+    },
+    {
+      "name": "remove_all_patterns",
+      "arguments": {
+        "string": "\"processed_example.txt\"",
+        "pattern": "\"processed\""
+      },
+      "label": "var2"
+    }
+  ],
+  [
+    {
+      "name": "parse_list_of_numbers",
+      "arguments": {
+        "string": "'1",
+        "": "2",
+        "3": "3'"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "square_root_list",
+      "arguments": {
+        "numbers": "[1",
+        "": "4",
+        "9": "9]"
+      },
+      "label": "var1"
+    },
+    {
+      "name": "disjoint",
+      "arguments": {
+        "list1": "[1",
+        "": "5",
+        "3": "3]",
+        "list2": "[4",
+        "6": "6]"
+      },
+      "label": "var2"
+    }
+  ],
+  [
+    {
+      "name": "non_whitespace_substrings",
+      "arguments": {
+        "input_str": "'Hello World!'"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "convert_to_unicode_if_available",
+      "arguments": {
+        "input_string": "'abc'"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "check_characters_order",
+      "arguments": {
+        "string": "'abc'"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "get_positive_integer_index",
+      "arguments": {
+        "input_list": "[1",
+        "": "9",
+        "10": "10]",
+        "n": "3"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "1080",
+        "arg_1": "800"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "add_n_to_list",
+      "arguments": {
+        "lst": "[1",
+        "": "4",
+        "5": "5]",
+        "n": "10"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "410",
+        "arg_1": "65"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "79",
+        "arg_1": "5"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "1": "12"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "lcm",
+      "arguments": {
+        "": "6"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "sqrt",
+      "arguments": {
+        "2": "20"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "replace_first_star",
+      "arguments": {
+        "s1": "'stack_project_name/stack_name'",
+        "s2": "'new_name'"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "str_to_unicode",
+      "arguments": {
+        "s": "'stack_project_name/stack_name'"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "integer_square_root",
+      "arguments": {
+        "n": "100"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "within_tolerance",
+      "arguments": {
+        "actual": "10",
+        "expected": "10",
+        "tolerance": "0.1"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "convert_to_format",
+      "arguments": {
+        "input_list": "['apple'",
+        "'banana": "'banana'",
+        "'cherry'": "'cherry']"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "remove_consecutive_spaces",
+      "arguments": {
+        "s": "'0: apple1: banana2: cherry'"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "70",
+        "arg_1": "x"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "70",
+        "arg_1": "x"
+      },
+      "label": "var1"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "arg_0": "3",
+        "arg_1": "var1.output"
+      },
+      "label": "var2"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "3*9",
+        "arg_1": "9*2"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "replace_seven",
+      "arguments": {
+        "input_string": "s"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "tokenize_and_capitalize",
+      "arguments": {
+        "text": "'1 2 3 4 5'"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "square_edge_by_perimeter",
+      "arguments": {
+        "arg_0": "10"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "factorial",
+      "arguments": {
+        "arg_0": "5"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "divide",
+      "arguments": {
+        "arg_0": "440",
+        "arg_1": "1.2"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "speed",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "20"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "speed",
+      "arguments": {
+        "arg_0": "35",
+        "arg_1": "1"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "speed",
+      "arguments": {
+        "arg_0": "35+2",
+        "arg_1": "2"
+      },
+      "label": "var1"
+    },
+    {
+      "name": "speed",
+      "arguments": {
+        "arg_0": "35+2*2",
+        "arg_1": "3"
+      },
+      "label": "var2"
+    },
+    {
+      "name": "speed",
+      "arguments": {
+        "arg_0": "35+2*2+2*2",
+        "arg_1": "4"
+      },
+      "label": "var3"
+    },
+    {
+      "name": "speed",
+      "arguments": {
+        "arg_0": "35+2*2+2*2+2*2",
+        "arg_1": "5"
+      },
+      "label": "var4"
+    },
+    {
+      "name": "speed",
+      "arguments": {
+        "arg_0": "35+2*2+2*2+2*2+2*2",
+        "arg_1": "6"
+      },
+      "label": "var5"
+    },
+    {
+      "name": "speed",
+      "arguments": {
+        "arg_0": "35+2*2+2*2+2*2+2*2+2*2",
+        "arg_1": "7"
+      },
+      "label": "var6"
+    },
+    {
+      "name": "speed",
+      "arguments": {
+        "arg_0": "35+2*2+2*2+2*2+2*2+2*2+2*2",
+        "arg_1": "8"
+      },
+      "label": "var7"
+    },
+    {
+      "name": "speed",
+      "arguments": {
+        "arg_0": "35+2*2+2*2+2*2+2*2+2*2+2*2+2*2",
+        "arg_1": "9"
+      },
+      "label": "var8"
+    },
+    {
+      "name": "speed",
+      "arguments": {
+        "arg_0": "35+2*2+2*2+2*2+2*2+2*2+2*2+2*2+2*2",
+        "arg_1": "10"
+      },
+      "label": "var9"
+    },
+    {
+      "name": "speed",
+      "arguments": {
+        "arg_0": "35+2*2+2*2+2*2+2*2+2*2+2*2+2*2+2*2+2*2",
+        "arg_1": "11"
+      },
+      "label": "var10"
+    },
+    {
+      "name": "speed",
+      "arguments": {
+        "arg_0": "35+2*2+2*2+2*2+2*2+2*2+2*2+2*2+2*2+2*2+2*2",
+        "arg_1": "12"
+      },
+      "label": "var11"
+    }
+  ],
+  [
+    {
+      "name": "convert_to_url_path",
+      "arguments": {
+        "path": "\"My Path/To/Somewhere\""
+      },
+      "label": "var0"
+    },
+    {
+      "name": "make_lists",
+      "arguments": {
+        "numbers": "[1",
+        "": "9",
+        "10": "10]",
+        "size": "3"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "escape_markdown",
+      "arguments": {
+        "text": "\"Hello",
+        "*World*!": "*World*!\""
+      },
+      "label": "var0"
+    },
+    {
+      "name": "is_pdf_file",
+      "arguments": {
+        "filename": "\"Hello",
+        "*World*!.pdf": "*World*!.pdf\""
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "22500",
+        "arg_1": "250"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "power",
+      "arguments": {
+        "": "2"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "power",
+      "arguments": {
+        "": "2"
+      },
+      "label": "var1"
+    },
+    {
+      "name": "add",
+      "arguments": {
+        "power(": "var1.output",
+        "1": "14"
+      },
+      "label": "var2"
+    }
+  ],
+  [
+    {
+      "name": "create_identity_matrix",
+      "arguments": {
+        "size": "3"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "find_max_for_each_row",
+      "arguments": {
+        "A": "[[1",
+        "": "8",
+        "3": "3]",
+        "[": "[7",
+        "6": "6]",
+        "9]": "9]]"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "102",
+        "arg_1": "138"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "325",
+        "arg_1": "175"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "325",
+        "arg_1": "50"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "add_suffix_to_filename",
+      "arguments": {
+        "filename": "'image.jpg'",
+        "suffix": "'_edited'"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "align_left",
+      "arguments": {
+        "s": "'image.jpg_edited'",
+        "length": "20"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "tail_recur",
+      "arguments": {
+        "n": "5"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "calculate_label",
+      "arguments": {
+        "value": "100",
+        "threshold": "100"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "multiply",
+      "arguments": {
+        "arg_0": "5",
+        "arg_1": "4"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "14000",
+        "arg_1": "var0.output"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "calc_dot_product",
+      "arguments": {
+        "a": "[1",
+        "": "5",
+        "3": "3]",
+        "b": "[4",
+        "6": "6]"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "A+B-C-": "A+B-C-D",
+        "A-B-C+": "A-B-C+D"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "A+B-C-": "A+B-C-D",
+        "A-B-C+": "A-B-C+D"
+      },
+      "label": "var1"
+    },
+    {
+      "name": "power",
+      "arguments": {
+        "subtract(A+B-C-": "var1.output",
+        "": "2"
+      },
+      "label": "var2"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "6",
+        "arg_1": "6/5"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "speed",
+      "arguments": {
+        "arg_0": "130",
+        "arg_1": "45"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "177",
+        "arg_1": "151"
+      },
+      "label": "var0"
+    }
+  ],
+  [],
+  [
+    {
+      "name": "square_edge_by_area",
+      "arguments": {
+        "arg_0": "5929"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "find_strings_with_pattern",
+      "arguments": {
+        "string_list": "['apple'",
+        "'banana": "'banana'",
+        "'cherry": "'cherry'",
+        "'date": "'date'",
+        "'elderberry'": "'elderberry']",
+        "pattern": "'a'"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "lcm",
+      "arguments": {
+        "": "8",
+        "1": "10"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "3": "30",
+        "": "3"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "multiply",
+      "arguments": {
+        "": "6",
+        "27": "270"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var1"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var2"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var3"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var4"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var5"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var6"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var7"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var8"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var9"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var10"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var11"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var12"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var13"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var14"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var15"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var16"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var17"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var18"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var19"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var20"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var21"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var22"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var23"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var24"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var25"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var26"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var27"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var28"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var29"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var30"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var31"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var32"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var33"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var34"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var35"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var36"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var37"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var38"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var39"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var40"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var41"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var42"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var43"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var44"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var45"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var46"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var47"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var48"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var49"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var50"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var51"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var52"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var53"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var54"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var55"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var56"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var57"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var58"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var59"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var60"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var61"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var62"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var63"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var64"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var65"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var66"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var67"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var68"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var69"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var70"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var71"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var72"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var73"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var74"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var75"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var76"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "27": "270"
+      },
+      "label": "var77"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "1": "10",
+        "": "2"
+      },
+      "label": "var78"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "9200",
+        "arg_1": "7000"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "arg_0": "var0.output",
+        "arg_1": "1.02"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "shift_elements",
+      "arguments": {
+        "lst": "[1",
+        "": "4",
+        "5": "5]",
+        "n": "3"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "sum_every_other",
+      "arguments": {
+        "nums": "[1",
+        "": "4",
+        "5": "5]"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "create_list_of_even_numbers",
+      "arguments": {
+        "n": "10"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "compute_square_roots",
+      "arguments": {
+        "numbers": "[0",
+        "": "9",
+        "10": "10]"
+      },
+      "label": "var1"
+    },
+    {
+      "name": "format_initializer_list",
+      "arguments": {
+        "numbers": "[0",
+        "": "8",
+        "10": "10]"
+      },
+      "label": "var2"
+    }
+  ],
+  [
+    {
+      "name": "replace_separators",
+      "arguments": {
+        "input_list": "['apple_'",
+        "'banana-": "'banana-'",
+        "'cherry'": "'cherry']"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "find_first_index",
+      "arguments": {
+        "strings": "['apple_'",
+        "'banana-": "'banana-'",
+        "'cherry'": "'cherry']",
+        "target": "'banana'"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "divide",
+      "arguments": {
+        "": "5",
+        "1": "10"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "inverse",
+      "arguments": {
+        "arg_0": "3"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "tokenize_sentence",
+      "arguments": {
+        "sentence": "\"Hello",
+        "World!": "World!\""
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "6",
+        "arg_1": "8"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "33000",
+        "arg_1": "550"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "reminder",
+      "arguments": {
+        "arg_0": "n",
+        "arg_1": "11"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "divide",
+      "arguments": {
+        "2": "21",
+        "1": "10"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "13": "130",
+        "5*": "5*2"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "divide",
+      "arguments": {
+        "arg_0": "5000",
+        "arg_1": "8"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "remainder",
+      "arguments": {
+        "arg_0": "twice the number",
+        "arg_1": "divisor"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "is_all_even",
+      "arguments": {
+        "numbers": "[2",
+        "": "6",
+        "8": "8]"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "multiply",
+      "arguments": {
+        "4": "45",
+        "?)": "25% of 90"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "1",
+        "arg_1": "1/18"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "62",
+        "arg_1": "40"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "convert_from_srm_to_rgb",
+      "arguments": {
+        "srm_colors": "[10.0",
+        "20.": "20.0",
+        "30.0": "30.0]"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "convert_radian_to_degree",
+      "arguments": {
+        "radian": "3.14"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "10": "100",
+        "16": "160"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "Niall's income = Rex's income * 0.6 = Rex's income * 0.4 = Sam's income * 0.75. Rex gave 60% of his income to Sam, so Sam's new income = Rex's income * 0.4 * 0.6 = Rex's income * 0.24. Niall's new income = Rex's income * 0.4 * 0.6 = Rex's income * 0.24. Niall's new income is 0.24 of Sam's new income",
+      "arguments": {
+        "Niall's income": "Rex's income * 0.6 = Rex's income * 0.4 = Sam's income * 0.75. Rex gave 60% of his income to Sam",
+        "so Sam's new income": "Rex's income * 0.4 * 0.6 = Rex's income * 0.24. Niall's new income = Rex's income * 0.4 * 0.6 = Rex's income * 0.24. Niall's new income is 0.24 of Sam's new income"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "get_n_term_of_fibonacci_sequence",
+      "arguments": {
+        "n": "5"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "find_max_in_each_subarray",
+      "arguments": {
+        "array": "[[1",
+        "": "8",
+        "3": "3]",
+        "[": "[7",
+        "6": "6]",
+        "9]": "9]]"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "38",
+        "arg_1": "0.08*y"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "4/5",
+        "arg_1": "1"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "divide",
+      "arguments": {
+        "arg_0": "16",
+        "arg_1": "16"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "240",
+        "arg_1": "240/7"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "10",
+        "arg_1": "30"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "remove_curly_braces",
+      "arguments": {
+        "text": "\"Hello {name}",
+        "how are you?": "how are you?\""
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "1500",
+        "arg_1": "1500*0.25"
+      },
+      "label": "var0"
+    }
+  ],
+  [],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "16",
+        "arg_1": "3"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "int_factorial",
+      "arguments": {
+        "n": "5"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "max_number",
+      "arguments": {
+        "x": "100",
+        "y": "5"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "1": "12",
+        "2": "20"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "pad_buffer",
+      "arguments": {
+        "lst": "[1",
+        "": "4",
+        "5": "5]",
+        "n": "3"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "search_min_max",
+      "arguments": {
+        "a": "[1",
+        "": "4",
+        "5": "5]"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "250",
+        "arg_1": "120"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "18",
+        "arg_1": "60"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "remove_control_chars_and_pad",
+      "arguments": {
+        "s": "\"Hello",
+        "World!": "World!\""
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "format_pretty_time",
+      "arguments": {
+        "duration_seconds": "12345"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "25"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "36",
+        "arg_1": "19"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "30",
+        "arg_1": "40"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "divide",
+      "arguments": {
+        "arg_0": "360",
+        "arg_1": "45"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "divide",
+      "arguments": {
+        "arg_0": "360",
+        "arg_1": "45"
+      },
+      "label": "var1"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "140",
+        "arg_1": "var1.output"
+      },
+      "label": "var2"
+    }
+  ],
+  [
+    {
+      "name": "reverse_vowels",
+      "arguments": {
+        "string": "\"Hello",
+        "World!": "World!\""
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "4"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "speed",
+      "arguments": {
+        "arg_0": "110",
+        "arg_1": "30"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "divide",
+      "arguments": {
+        "arg_0": "12",
+        "arg_1": "2"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "16",
+        "arg_1": "n"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "get_letters",
+      "arguments": {
+        "string": "'Hello World'"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "find_value_in_nested_dictionary",
+      "arguments": {
+        "dict": "{'key1': 'value1'",
+        "'key2': 'value2'": "'key2': 'value2'}",
+        "value": "'value1'"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "generate_uuid_from_string",
+      "arguments": {
+        "string": "'key1'"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "1/2",
+        "arg_1": "1/2"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "1/": "1/2",
+        "1/1": "1/16"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "4000",
+        "arg_1": "75"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "best_round",
+      "arguments": {
+        "n": "100"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "time_format_convert_d2h",
+      "arguments": {
+        "seconds": "100"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "6400",
+        "arg_1": "4700"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "divide",
+      "arguments": {
+        "arg_0": "6400",
+        "arg_1": "4700"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "multiply",
+      "arguments": {
+        "arg_0": "4",
+        "arg_1": "75"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "multiply",
+      "arguments": {
+        "152": "1529"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "152": "1529"
+      },
+      "label": "var1"
+    },
+    {
+      "name": "divide",
+      "arguments": {
+        "multiply(152": "var1.output",
+        "1": "12"
+      },
+      "label": "var2"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "22": "220",
+        "2": "21"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "initialize_list",
+      "arguments": {
+        "rows": "3",
+        "cols": "4",
+        "val": "0"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "json_to_nested_dict",
+      "arguments": {
+        "json_string": "'{\"1\": \"a\"",
+        "\"2\": \"b": "\"2\": \"b\"",
+        "\"3\": \"c\"}": "\"3\": \"c\"}'"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "swap_dictionary",
+      "arguments": {
+        "dictionary": "{1: 'a'",
+        "2: 'b": "2: 'b'",
+        "3: 'c'": "3: 'c'}"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "30",
+        "arg_1": "20"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "divide",
+      "arguments": {
+        "arg_0": "3*100+4*150",
+        "arg_1": "3+4"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "150",
+        "arg_1": "var0.output"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "multiply",
+      "arguments": {
+        "arg_0": "0.55",
+        "arg_1": "6000"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "6000",
+        "arg_1": "var0.output"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "square_perimeter",
+      "arguments": {
+        "arg_0": "2"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "maxSubarraySum",
+      "arguments": {
+        "nums": "[1",
+        "": "4",
+        "5": "5]"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "convert_reversed",
+      "arguments": {
+        "n": "12345"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "choose",
+      "arguments": {
+        "arg_0": "10",
+        "arg_1": "2"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "group_random_subsets",
+      "arguments": {
+        "numbers": "[1",
+        "": "9",
+        "10": "10]",
+        "k": "3"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "get_branch_url",
+      "arguments": {
+        "repo": "'my_repo'",
+        "branch": "'main'"
+      },
+      "label": "var1"
+    },
+    {
+      "name": "decode_string_or_bytes",
+      "arguments": {
+        "input_value": "'https://github.com/my_repo/tree/main'"
+      },
+      "label": "var2"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "8",
+        "arg_1": "k + 8"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "gen_random_str_with_lower_case",
+      "arguments": {
+        "n": "10"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "compute_area_circle",
+      "arguments": {
+        "radius": "5"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "lcm",
+      "arguments": {
+        "": "8"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "lcm",
+      "arguments": {
+        "": "6",
+        "1": "10"
+      },
+      "label": "var1"
+    },
+    {
+      "name": "lcm",
+      "arguments": {
+        "": "6",
+        "1": "10"
+      },
+      "label": "var3"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "lcm(": "var3.output"
+      },
+      "label": "var4"
+    }
+  ],
+  [
+    {
+      "name": "compute_mean",
+      "arguments": {
+        "two_d_list": "[[1",
+        "": "8",
+        "3": "3]",
+        "[": "[7",
+        "6": "6]",
+        "9]": "9]]"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "mean",
+      "arguments": {
+        "two_d_list": "[[1",
+        "": "8",
+        "3": "3]",
+        "[": "[7",
+        "6": "6]",
+        "9]": "9]]"
+      },
+      "label": "var1"
+    },
+    {
+      "name": "modular_exponentiation",
+      "arguments": {
+        "a": "var1.output",
+        "b": "2",
+        "c": "3"
+      },
+      "label": "var2"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "18"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "10": "100",
+        "1": "10"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "parse_string_field",
+      "arguments": {
+        "input_string": "'field_1=value_1'",
+        "field_name": "'field_1'"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "2030",
+        "arg_1": "1218"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "circle_area",
+      "arguments": {
+        "arg_0": "7"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "6*4",
+        "arg_1": "6*10"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "modified_string",
+      "arguments": {
+        "text": "\"Hello",
+        "World!": "World!\""
+      },
+      "label": "var0"
+    },
+    {
+      "name": "hmac_sha256",
+      "arguments": {
+        "message": "\"Hello",
+        "World!": "World!\"",
+        "secret": "\"secret\""
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "find_minimum_distance",
+      "arguments": {
+        "points": "[[1",
+        "2": "2]",
+        "[": "[5",
+        "4": "4]",
+        "6]": "6]]"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "1216",
+        "arg_1": "0.24"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "lcm",
+      "arguments": {
+        "arg_0": "15",
+        "arg_1": "20"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "lcm",
+      "arguments": {
+        "arg_0": "15",
+        "arg_1": "15"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "date_format",
+      "arguments": {
+        "s": "\"2022-01-01\""
+      },
+      "label": "var0"
+    },
+    {
+      "name": "count_differences",
+      "arguments": {
+        "str1": "\"Hello",
+        "World!": "World!\"",
+        "str2": "\"Hello"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "get_year",
+      "arguments": {
+        "date": "'12/05/2022'"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "check_integer",
+      "arguments": {
+        "value": "2022"
+      },
+      "label": "var1"
+    },
+    {
+      "name": "circle_perimeter",
+      "arguments": {
+        "radius": "2022"
+      },
+      "label": "var2"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "3",
+        "arg_1": "15"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "divide",
+      "arguments": {
+        "arg_0": "15",
+        "arg_1": "2"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "simple_interest",
+      "arguments": {
+        "principal": "10000",
+        "rate": "7",
+        "time": "12"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "15",
+        "arg_1": "300"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "speed",
+      "arguments": {
+        "arg_0": "5",
+        "arg_1": "60"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "speed",
+      "arguments": {
+        "arg_0": "20",
+        "arg_1": "20"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "convert_arch",
+      "arguments": {
+        "arch": "'x86_64'"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "30",
+        "arg_1": "20"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "190",
+        "arg_1": "1"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "12": "120",
+        "1": "10"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "6": "60",
+        "1": "10"
+      },
+      "label": "var1"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "6": "60",
+        "1": "10"
+      },
+      "label": "var3"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "subtract(12": "var2.output",
+        "subtract(6": "var3.output"
+      },
+      "label": "var4"
+    }
+  ],
+  [
+    {
+      "name": "convert_to_url_slug",
+      "arguments": {
+        "text": "'cluster1.service1'"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "extract_usernames",
+      "arguments": {
+        "messages": "['User: Alice'",
+        "'User: Bob": "'User: Bob'",
+        "'User: Alice": "'User: Alice'",
+        "'User: Charlie'": "'User: Charlie']"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "gcd",
+      "arguments": {
+        "165": "1657",
+        "203": "2037"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "speed",
+      "arguments": {
+        "arg_0": "100",
+        "arg_1": "60"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "parse_compound_string",
+      "arguments": {
+        "s": "'a.b.c.d'"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "6": "60",
+        "2": "24"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "add",
+      "arguments": {
+        "arg_0": "33",
+        "arg_1": "-7"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "-2",
+        "arg_1": "4"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "level",
+      "arguments": {
+        "number": "123.456",
+        "level": "0.1"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "calculate_diameter",
+      "arguments": {
+        "radius": "5"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "180",
+        "arg_1": "170"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "factorial",
+      "arguments": {
+        "arg_0": "11"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "factorial",
+      "arguments": {
+        "arg_0": "8"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "75",
+        "arg_1": "65"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var1"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var2"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var3"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var4"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var5"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var6"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var7"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var8"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var9"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var10"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var11"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var12"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var13"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var14"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var15"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var16"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var17"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var18"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var19"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var20"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var21"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var22"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var23"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var24"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var25"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var26"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var27"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var28"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var29"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var30"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var31"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var32"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var33"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var34"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var35"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var36"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var37"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var38"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var39"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var40"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var41"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var42"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var43"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var44"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var45"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var46"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var47"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var48"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var49"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "40"
+      },
+      "label": "var50"
+    },
+    {
+      "name": "su",
+      "arguments": {
+        "s": "su"
+      },
+      "label": "var51"
+    }
+  ],
+  [
+    {
+      "name": "sum_unique_values",
+      "arguments": {
+        "lst": "[1",
+        "": "4",
+        "5": "5]"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "log",
+      "arguments": {
+        "2304": "23040",
+        "": "2"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "inverse",
+      "arguments": {
+        "2304": "23040"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "rectangle_area",
+      "arguments": {
+        "arg_0": "2/3",
+        "arg_1": "1/6"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "random_string",
+      "arguments": {
+        "n": "10"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "multiply",
+      "arguments": {
+        "arg_0": "44",
+        "arg_1": "28"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "800",
+        "arg_1": "var0.output"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "bit_length",
+      "arguments": {
+        "n": "100"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "largest_element_in_heap",
+      "arguments": {
+        "heap": "[10",
+        "2": "20",
+        "3": "30",
+        "4": "40",
+        "50": "50]"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "convert_decibel_to_linear",
+      "arguments": {
+        "x_decibel": "10"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "parse_parameters",
+      "arguments": {
+        "params_string": "'key1=value1,key2=value2,key3=value3'"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "600",
+        "arg_1": "15"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "400",
+        "arg_1": "7"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "add_indent",
+      "arguments": {
+        "text": "'Hello",
+        "World!": "World!'",
+        "level": "4"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "hash_json",
+      "arguments": {
+        "obj": "'Hello",
+        "World!": "World!'"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "1",
+        "arg_1": "0.6666666666666666"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "2000",
+        "arg_1": "150"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "arg_0": "2000",
+        "arg_1": "2"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "divide",
+      "arguments": {
+        "800": "8000",
+        "": "3"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "my_int",
+      "arguments": {
+        "string_num": "'123'"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "divide_without_div_operator",
+      "arguments": {
+        "dividend": "123",
+        "divisor": "5"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "fix_tex_maths",
+      "arguments": {
+        "text": "\"hello world\""
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "find_nth_smallest",
+      "arguments": {
+        "nums": "[1",
+        "": "9",
+        "10": "10]",
+        "n": "5"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "zeroes_to_binary",
+      "arguments": {
+        "n": "5"
+      },
+      "label": "var1"
+    },
+    {
+      "name": "count_leading_and_trailing_spaces",
+      "arguments": {
+        "s": "'00000'"
+      },
+      "label": "var2"
+    }
+  ],
+  [
+    {
+      "name": "sum_of_elements",
+      "arguments": {
+        "lst": "[1",
+        "": "9",
+        "10": "10]"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "replace_with_target",
+      "arguments": {
+        "src_list": "[1",
+        "": "0",
+        "1": "1]",
+        "target": "0",
+        "replacement": "2"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "group_zeros_and_ones",
+      "arguments": {
+        "input_list": "[1",
+        "": "2",
+        "0": "0]"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "inverse",
+      "arguments": {
+        "arg_0": "1"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "random_alphanumeric_string",
+      "arguments": {
+        "length": "10"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "chunked",
+      "arguments": {
+        "string": "'abcdefghij'",
+        "chunk_size": "2"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "20*12",
+        "arg_1": "10*52"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "97",
+        "arg_1": "4"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "multiply",
+      "arguments": {
+        "10": "100",
+        "3": "30"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "15": "150",
+        "3": "30"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "300",
+        "arg_1": "100"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "0.7*120",
+        "arg_1": "0.35*200"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "add",
+      "arguments": {
+        "95": "950",
+        "220/900) \u00d7 9": "220/900) \u00d7 90"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "get_euro_date",
+      "arguments": {
+        "date_str": "'12/31/2022'"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "pad_string_left",
+      "arguments": {
+        "s": "'12/31/2022'",
+        "n": "15"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "convert_to_ascii_codes",
+      "arguments": {
+        "text": "\"Hello",
+        "World!": "World!\""
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "format_directory",
+      "arguments": {
+        "directory_path": "'/home/user/documents'"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "max_number",
+      "arguments": {
+        "arg_0": "[3",
+        "": "3"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "24",
+        "arg_1": "-26"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "George's money",
+        "arg_1": "0.05*George's money"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "16",
+        "arg_1": "2"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "1365",
+        "arg_1": "30"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "10": "100",
+        "100 * 0.2": "100 * 0.25"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "round_to_bin_edge",
+      "arguments": {
+        "value": "10",
+        "bin_edges": "[0",
+        "": "5",
+        "1": "10",
+        "15": "15]"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "special_formula",
+      "arguments": {
+        "x": "3",
+        "y": "4"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "permutation",
+      "arguments": {
+        "": "2"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "square_edge_by_area",
+      "arguments": {
+        "arg_0": "5625"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "camel_case_to_underscore",
+      "arguments": {
+        "s": "'helloWorld'"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "contains_value",
+      "arguments": {
+        "lst": "[1",
+        "": "4",
+        "5": "5]",
+        "value": "3"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "crossover_uniform",
+      "arguments": {
+        "parent1": "[1",
+        "": "5",
+        "3": "3]",
+        "parent2": "[4",
+        "6": "6]"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "divide",
+      "arguments": {
+        "60": "600",
+        "1/2 + 1/": "1/2 + 1/3"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "divide",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "5"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "50",
+        "arg_1": "var0.output"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "multiply",
+      "arguments": {
+        "arg_0": "15",
+        "arg_1": "2"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "is_alphabetically_sorted",
+      "arguments": {
+        "list_of_strings": "['Hello'",
+        "'World!'": "'World!']"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "36",
+        "arg_1": "10"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "dB_to_linear",
+      "arguments": {
+        "dB": "10"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "-4",
+        "arg_1": "11"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "geometric",
+      "arguments": {
+        "a": "2",
+        "r": "3",
+        "n": "5"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "multiply",
+      "arguments": {
+        "arg_0": "0.3",
+        "arg_1": "1"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "300",
+        "arg_1": "var0.output"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "2": "24",
+        "29) + 1240": "?"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "parse_string_to_floats",
+      "arguments": {
+        "string": "'1.2",
+        "3.": "3.4",
+        "5.": "5.6",
+        "7.": "7.8",
+        "9.0": "9.0'"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "unique_substring",
+      "arguments": {
+        "s": "'1.2",
+        "3.": "3.4",
+        "5.": "5.6",
+        "7.": "7.8",
+        "9.0": "9.0'"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "divide",
+      "arguments": {
+        "arg_0": "875233",
+        "arg_1": "899"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "divide",
+      "arguments": {
+        "arg_0": "875233",
+        "arg_1": "899"
+      },
+      "label": "var1"
+    },
+    {
+      "name": "multiply",
+      "arguments": {
+        "arg_0": "var1.output",
+        "arg_1": "899"
+      },
+      "label": "var2"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "650",
+        "arg_1": "30"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "create_square_tensor",
+      "arguments": {
+        "n": "5"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "calculate_mean_of_array",
+      "arguments": {
+        "array": "[[1",
+        "2": "2]",
+        "[": "[3",
+        "4]": "4]]"
+      },
+      "label": "var1"
+    },
+    {
+      "name": "remove_character",
+      "arguments": {
+        "s": "\"banana\"",
+        "c": "\"a\""
+      },
+      "label": "var2"
+    },
+    {
+      "name": "convert_time_to_list",
+      "arguments": {
+        "time": "\"12:34:56\""
+      },
+      "label": "var3"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "1080",
+        "arg_1": "750"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "8",
+        "arg_1": "2"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "300",
+        "arg_1": "300*0.25"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "add_commas_to_string",
+      "arguments": {
+        "s": "'Hello",
         "World!": "World!'"
       },
       "label": "var0"
@@ -31,54 +3914,213 @@
     {
       "name": "subtract",
       "arguments": {
-        "arg_0": "40",
-        "arg_1": "80*0.08"
-      },
-      "label": "var0"
-    },
-    {
-      "name": "divide",
-      "arguments": {
-        "arg_0": "4/5*30",
-        "arg_1": "40*0.8"
-      },
-      "label": "var1"
-    }
-  ],
-  [
-    {
-      "name": "reminder",
-      "arguments": {
-        "arg_0": "3^50",
-        "arg_1": "7"
+        "arg_0": "55",
+        "arg_1": "20"
       },
       "label": "var0"
     }
   ],
   [
     {
-      "name": "divide",
+      "name": "clean_column_names",
       "arguments": {
-        "arg_0": "16",
-        "arg_1": "4"
+        "column_name": "'Column 1'"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "50": "500",
+        "2": "20"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "chunked",
+      "arguments": {
+        "string": "'Hello",
+        "World!": "World!'",
+        "chunk_size": "5"
       },
       "label": "var0"
     },
     {
-      "name": "divide",
+      "name": "join_with_spaces",
       "arguments": {
-        "arg_0": "16",
-        "arg_1": "4).result"
+        "parameters": "['Hello'",
+        "": "'",
+        "'World!'": "'World!']"
       },
       "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "integer_list_to_string",
+      "arguments": {
+        "integer_list": "[1",
+        "": "4",
+        "5": "5]"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "normalize_string",
+      "arguments": {
+        "s": "'Hello",
+        "World!": "World!'"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "square_perimeter",
+      "arguments": {
+        "side_length": "8"
+      },
+      "label": "var0"
     },
     {
       "name": "multiply",
       "arguments": {
-        "arg_0": "var1.output",
-        "arg_1": "3"
+        "arg_0": "8",
+        "arg_1": "58"
       },
-      "label": "var2"
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "divide",
+      "arguments": {
+        "arg_0": "70",
+        "arg_1": "0.05"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "70",
+        "arg_1": "var0.output"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "string_replace",
+      "arguments": {
+        "input_string": "'I like to eat _ on Sundays'",
+        "from_str": "'apple'",
+        "to_str": "'orange'"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "100",
+        "arg_1": "7+8"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "divide",
+      "arguments": {
+        "arg_0": "19000",
+        "arg_1": "2"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "subtract",
+      "arguments": {
+        "arg_0": "19000",
+        "arg_1": "var0.output"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "remove_punctuation_and_lowercase",
+      "arguments": {
+        "string": "\"Hello",
+        "World!": "World!\""
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "sinh",
+      "arguments": {
+        "x": "1.5"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "sort_string_of_ints",
+      "arguments": {
+        "input_string": "\"1,2,3,4,5\""
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "compute_cumulative_sum",
+      "arguments": {
+        "nums": "[1",
+        "": "4",
+        "5": "5]"
+      },
+      "label": "var0"
+    },
+    {
+      "name": "convert_to_printable_str",
+      "arguments": {
+        "input_list": "[1",
+        "": "3",
+        "'four": "'four'",
+        "5": "5]"
+      },
+      "label": "var1"
+    }
+  ],
+  [
+    {
+      "name": "multiply",
+      "arguments": {
+        "arg_0": "12",
+        "arg_1": "124"
+      },
+      "label": "var0"
+    }
+  ],
+  [
+    {
+      "name": "scale_linearly",
+      "arguments": {
+        "lst": "[1",
+        "": "4",
+        "5": "5]",
+        "scale": "2"
+      },
+      "label": "var0"
     }
   ]
 ]

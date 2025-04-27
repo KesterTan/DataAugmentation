@@ -4,9 +4,9 @@ from sklearn.metrics import f1_score, precision_score, recall_score
 from sklearn.preprocessing import MultiLabelBinarizer
 binarizer = MultiLabelBinarizer()
 
-# result = "in-context-eval_results.json"
+result = "in-context-eval_results.json"
 
-result = "1-shot-eval/try_two_results.json"
+# result = "1-shot-eval/try_two_results.json"
 
 df = pd.read_parquet("hf://datasets/ibm-research/nestful/data/train-00000-of-00001.parquet")
 
@@ -22,6 +22,7 @@ def parse_func(text, label):
     p = text.find('(')
     if p == -1:
         print("Parsing error")
+        print("Parsing error", "text")
     
     function = {"name" : text[:p]}
     output = []
@@ -34,7 +35,7 @@ def parse_func(text, label):
         params[i] = params[i].strip()
         e = params[i].find("=")
         if e == -1:
-            print("Parsing error")
+            print("Parsing error", "text")
 
         key = params[i][:e].strip()
         value = params[i][e+1:].strip()
@@ -90,7 +91,11 @@ for i in range(len(result_data)):
     
     pred_dict_list = []
     for pred in pred_output:
-        pred_dict_list += parse_func(pred, len(pred_dict_list))
+        print(pred)
+        try: 
+            pred_dict_list += parse_func(pred, len(pred_dict_list))
+        except:        
+            print("oopsies")
 
     data.append(pred_dict_list)
 

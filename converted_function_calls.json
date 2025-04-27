@@ -1,0 +1,1692 @@
+[
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "350",
+      "arg_1": "multiply(arg_0=2/5, arg_1=350)"
+    },
+    "label": "$var1"
+  },
+  {
+    "name": "generate_power_of_two_list",
+    "arguments": {
+      "n": "5"
+    },
+    "label": "$var2"
+  },
+  {
+    "name": "square_area",
+    "arguments": {
+      "arg_0": "10"
+    },
+    "label": "$var3"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "45",
+      "arg_1": "45"
+    },
+    "label": "$var4"
+  },
+  {
+    "name": "convert_integer_to_byte_array_and_reverse",
+    "arguments": {
+      "integer": "12345)process_file_path(input_file_path=\"example.txt\")remove_all_patterns(string=\"processed_example.txt\"",
+      "pattern": "\"processed\""
+    },
+    "label": "$var5"
+  },
+  {
+    "name": "parse_list_of_numbers",
+    "arguments": {
+      "string": "'1, 2, 3')square_root_list(numbers=[1, 4, 9])disjoint(list1=[1",
+      "list2": "[4"
+    },
+    "label": "$var6"
+  },
+  {
+    "name": "non_whitespace_substrings",
+    "arguments": {
+      "input_str": "'Hello World!'"
+    },
+    "label": "$var7"
+  },
+  {
+    "name": "convert_to_unicode_if_available",
+    "arguments": {
+      "input_string": "'abc')check_characters_order(string='abc'"
+    },
+    "label": "$var8"
+  },
+  {
+    "name": "get_positive_integer_index",
+    "arguments": {
+      "input_list": "[1",
+      "n": "3"
+    },
+    "label": "$var9"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "1080",
+      "arg_1": "800"
+    },
+    "label": "$var10"
+  },
+  {
+    "name": "add_n_to_list",
+    "arguments": {
+      "lst": "[1",
+      "n": "10"
+    },
+    "label": "$var11"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "410",
+      "arg_1": "65"
+    },
+    "label": "$var12"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "79",
+      "arg_1": "5"
+    },
+    "label": "$var13"
+  },
+  {
+    "name": "subtract",
+    "arguments": {},
+    "label": "$var14"
+  },
+  {
+    "name": "lcm",
+    "arguments": {},
+    "label": "$var15"
+  },
+  {
+    "name": "sqrt",
+    "arguments": {},
+    "label": "$var16"
+  },
+  {
+    "name": "replace_first_star",
+    "arguments": {
+      "s1": "'stack_project_name/stack_name', s2='new_name')str_to_unicode(s='stack_project_name/stack_name'"
+    },
+    "label": "$var17"
+  },
+  {
+    "name": "integer_square_root",
+    "arguments": {
+      "n": "100)within_tolerance(actual=10",
+      "expected": "10",
+      "tolerance": "0.1"
+    },
+    "label": "$var18"
+  },
+  {
+    "name": "convert_to_format",
+    "arguments": {
+      "input_list": "['apple', 'banana', 'cherry'])remove_consecutive_spaces(s='0: apple1: banana2: cherry'"
+    },
+    "label": "$var19"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "70, arg_1=x)multiply(arg_0=3",
+      "arg_1": "subtract(arg_0=70, arg_1=x))"
+    },
+    "label": "$var20"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "3*9",
+      "arg_1": "9*2"
+    },
+    "label": "$var21"
+  },
+  {
+    "name": "replace_seven",
+    "arguments": {
+      "input_string": "s"
+    },
+    "label": "$var22"
+  },
+  {
+    "name": "tokenize_and_capitalize",
+    "arguments": {
+      "text": "'1 2 3 4 5'"
+    },
+    "label": "$var23"
+  },
+  {
+    "name": "square_edge_by_perimeter",
+    "arguments": {
+      "arg_0": "10"
+    },
+    "label": "$var24"
+  },
+  {
+    "name": "factorial",
+    "arguments": {
+      "arg_0": "5"
+    },
+    "label": "$var25"
+  },
+  {
+    "name": "divide",
+    "arguments": {
+      "arg_0": "440",
+      "arg_1": "1.2"
+    },
+    "label": "$var26"
+  },
+  {
+    "name": "speed",
+    "arguments": {
+      "arg_0": "50",
+      "arg_1": "20"
+    },
+    "label": "$var27"
+  },
+  {
+    "name": "speed",
+    "arguments": {
+      "arg_0": "35, arg_1=1)speed(arg_0=35+2, arg_1=2)speed(arg_0=35+2*2, arg_1=3)speed(arg_0=35+2*2+2*2, arg_1=4)speed(arg_0=35+2*2+2*2+2*2, arg_1=5)speed(arg_0=35+2*2+2*2+2*2+2*2, arg_1=6)speed(arg_0=35+2*2+2*2+2*2+2*2+2*2, arg_1=7)speed(arg_0=35+2*2+2*2+2*2+2*2+2*2+2*2, arg_1=8)speed(arg_0=35+2*2+2*2+2*2+2*2+2*2+2*2+2*2, arg_1=9)speed(arg_0=35+2*2+2*2+2*2+2*2+2*2+2*2+2*2+2*2, arg_1=10)speed(arg_0=35+2*2+2*2+2*2+2*2+2*2+2*2+2*2+2*2+2*2, arg_1=11)speed(arg_0=35+2*2+2*2+2*2+2*2+2*2+2*2+2*2+2*2+2*2+2*2",
+      "arg_1": "12"
+    },
+    "label": "$var28"
+  },
+  {
+    "name": "convert_to_url_path",
+    "arguments": {
+      "path": "\"My Path/To/Somewhere\")make_lists(numbers=[1",
+      "size": "3"
+    },
+    "label": "$var29"
+  },
+  {
+    "name": "escape_markdown",
+    "arguments": {
+      "text": "\"Hello, *World*!\")is_pdf_file(filename=\"Hello"
+    },
+    "label": "$var30"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "22500",
+      "arg_1": "250"
+    },
+    "label": "$var31"
+  },
+  {
+    "name": "power",
+    "arguments": {},
+    "label": "$var32"
+  },
+  {
+    "name": "create_identity_matrix",
+    "arguments": {
+      "size": "3)find_max_for_each_row(A=[[1"
+    },
+    "label": "$var33"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "102",
+      "arg_1": "138"
+    },
+    "label": "$var34"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "325, arg_1=175)subtract(arg_0=325",
+      "arg_1": "50"
+    },
+    "label": "$var35"
+  },
+  {
+    "name": "add_suffix_to_filename",
+    "arguments": {
+      "filename": "'image.jpg', suffix='_edited')align_left(s='image.jpg_edited'",
+      "length": "20"
+    },
+    "label": "$var36"
+  },
+  {
+    "name": "tail_recur",
+    "arguments": {
+      "n": "5)calculate_label(value=100",
+      "threshold": "100"
+    },
+    "label": "$var37"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "14000",
+      "arg_1": "multiply(arg_0=5, arg_1=4)"
+    },
+    "label": "$var38"
+  },
+  {
+    "name": "calc_dot_product",
+    "arguments": {
+      "a": "[1",
+      "b": "[4"
+    },
+    "label": "$var39"
+  },
+  {
+    "name": "subtract",
+    "arguments": {},
+    "label": "$var40"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "6",
+      "arg_1": "6/5"
+    },
+    "label": "$var41"
+  },
+  {
+    "name": "speed",
+    "arguments": {
+      "arg_0": "130",
+      "arg_1": "45"
+    },
+    "label": "$var42"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "177",
+      "arg_1": "151"
+    },
+    "label": "$var43"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "98",
+      "arg_1": "inverse(arg_0=3)"
+    },
+    "label": "$var44"
+  },
+  {
+    "name": "square_edge_by_area",
+    "arguments": {
+      "arg_0": "5929"
+    },
+    "label": "$var45"
+  },
+  {
+    "name": "find_strings_with_pattern",
+    "arguments": {
+      "string_list": "['apple'",
+      "pattern": "'a'"
+    },
+    "label": "$var46"
+  },
+  {
+    "name": "lcm",
+    "arguments": {},
+    "label": "$var47"
+  },
+  {
+    "name": "subtract",
+    "arguments": {},
+    "label": "$var48"
+  },
+  {
+    "name": "multiply",
+    "arguments": {},
+    "label": "$var49"
+  },
+  {
+    "name": "Sonika deposited Rs.7000 which amounted to Rs.9200 after 3 years at simple interest. Had the interest been 2% more. She would get how much?\\\n \nTo calculate the new amount with 2% more interest, we need to find the rate of interest. Since the original amount is Rs.7000 and the new amount is Rs.9200, we can calculate the interest using the formula: Interest = New Amount - Original Amount. Then, to find the rate, we divide the interest by the original amount and multiply by 100. \n\nLet's calculate the rate first:\nrate =",
+    "arguments": {
+      "we can calculate the new amount with 2% more interest using the formula: \nNew Amount": "Original Amount + Interest + (Interest * 2%)\n\nHere's how you would call the function for each step:\n\n1. Calculate the rate of interest:\nrate = (Interest / Original Amount) * 100\n\n2. Calculate the new amount with 2% more interest:\nNew Amount = Original Amount + Interest + (Interest * 2%)\n\nReplace the placeholders with the actual values:\nrate = (9200 - 7000) / 7000 * 100\nNew Amount = 7000 + (9200 - 7000) + ((9200 - 7000) * 2/100)\n\nNow",
+      "let's use the function to calculate the new amount with 2% more interest.\n\nFunction: add(arg_0": "7000",
+      "arg_1": "1.02"
+    },
+    "label": "$var50"
+  },
+  {
+    "name": "shift_elements",
+    "arguments": {
+      "lst": "[1, 2, 3, 4, 5], n=3)sum_every_other(nums=[1"
+    },
+    "label": "$var51"
+  },
+  {
+    "name": "create_list_of_even_numbers",
+    "arguments": {
+      "n": "10)compute_square_roots(numbers=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])format_initializer_list(numbers=[0"
+    },
+    "label": "$var52"
+  },
+  {
+    "name": "replace_separators",
+    "arguments": {
+      "input_list": "['apple_', 'banana-', 'cherry'])find_first_index(strings=['apple_'",
+      "target": "'banana'"
+    },
+    "label": "$var53"
+  },
+  {
+    "name": "divide",
+    "arguments": {},
+    "label": "$var54"
+  },
+  {
+    "name": "inverse",
+    "arguments": {
+      "arg_0": "3"
+    },
+    "label": "$var55"
+  },
+  {
+    "name": "tokenize_sentence",
+    "arguments": {
+      "sentence": "\"Hello"
+    },
+    "label": "$var56"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "6",
+      "arg_1": "8"
+    },
+    "label": "$var57"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "33000",
+      "arg_1": "550"
+    },
+    "label": "$var58"
+  },
+  {
+    "name": "reminder",
+    "arguments": {
+      "arg_0": "n",
+      "arg_1": "11"
+    },
+    "label": "$var59"
+  },
+  {
+    "name": "divide",
+    "arguments": {},
+    "label": "$var60"
+  },
+  {
+    "name": "subtract",
+    "arguments": {},
+    "label": "$var61"
+  },
+  {
+    "name": "divide",
+    "arguments": {
+      "arg_0": "5000",
+      "arg_1": "8"
+    },
+    "label": "$var62"
+  },
+  {
+    "name": "remainder",
+    "arguments": {
+      "arg_0": "twice the number",
+      "arg_1": "divisor"
+    },
+    "label": "$var63"
+  },
+  {
+    "name": "is_all_even",
+    "arguments": {
+      "numbers": "[2"
+    },
+    "label": "$var64"
+  },
+  {
+    "name": "multiply",
+    "arguments": {},
+    "label": "$var65"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "1",
+      "arg_1": "1/18"
+    },
+    "label": "$var66"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "62",
+      "arg_1": "40"
+    },
+    "label": "$var67"
+  },
+  {
+    "name": "convert_from_srm_to_rgb",
+    "arguments": {
+      "srm_colors": "[10.0"
+    },
+    "label": "$var68"
+  },
+  {
+    "name": "convert_radian_to_degree",
+    "arguments": {
+      "radian": "3.14"
+    },
+    "label": "$var69"
+  },
+  {
+    "name": "subtract",
+    "arguments": {},
+    "label": "$var70"
+  },
+  {
+    "name": "Niall's income = Rex's income * 0.6 = Rex's income * 0.4 = Sam's income * 0.75. Rex gave 60% of his income to Sam, so Sam's new income = Rex's income * 0.4 * 0.6 = Rex's income * 0.24. Niall's new income = Rex's income * 0.4 * 0.6 = Rex's income * 0.24. Niall's new income is 0.24 of Sam's new income.",
+    "arguments": {
+      "Niall's income": "Rex's income * 0.6 = Rex's income * 0.4 = Sam's income * 0.75. Rex gave 60% of his income to Sam",
+      "so Sam's new income": "Rex's income * 0.4 * 0.6 = Rex's income * 0.24. Niall's new income = Rex's income * 0.4 * 0.6 = Rex's income * 0.24. Niall's new income is 0.24 of Sam's new income"
+    },
+    "label": "$var71"
+  },
+  {
+    "name": "get_n_term_of_fibonacci_sequence",
+    "arguments": {
+      "n": "5)find_max_in_each_subarray(array=[[1, 2, 3], [4, 5, 6], [7, 8, 9]])generate_comment(name='John'",
+      "comment": "get_n_term_of_fibonacci_sequence(n=5)"
+    },
+    "label": "$var72"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "38",
+      "arg_1": "0.08*y"
+    },
+    "label": "$var73"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "4/5",
+      "arg_1": "1"
+    },
+    "label": "$var74"
+  },
+  {
+    "name": "divide",
+    "arguments": {
+      "arg_0": "16",
+      "arg_1": "16"
+    },
+    "label": "$var75"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "240",
+      "arg_1": "240/7"
+    },
+    "label": "$var76"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "10",
+      "arg_1": "30"
+    },
+    "label": "$var77"
+  },
+  {
+    "name": "remove_curly_braces",
+    "arguments": {
+      "text": "\"Hello {name}"
+    },
+    "label": "$var78"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "1500",
+      "arg_1": "1500*0.25"
+    },
+    "label": "$var79"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "8463",
+      "arg_1": "inverse(arg_0=100))"
+    },
+    "label": "$var80"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "16",
+      "arg_1": "3"
+    },
+    "label": "$var81"
+  },
+  {
+    "name": "int_factorial",
+    "arguments": {
+      "n": "5)max_number(x=100",
+      "y": "5"
+    },
+    "label": "$var82"
+  },
+  {
+    "name": "subtract",
+    "arguments": {},
+    "label": "$var83"
+  },
+  {
+    "name": "pad_buffer",
+    "arguments": {
+      "lst": "[1, 2, 3, 4, 5], n=3)search_min_max(a=[1"
+    },
+    "label": "$var84"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "250",
+      "arg_1": "120"
+    },
+    "label": "$var85"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "18",
+      "arg_1": "60"
+    },
+    "label": "$var86"
+  },
+  {
+    "name": "remove_control_chars_and_pad",
+    "arguments": {
+      "s": "\"Hello"
+    },
+    "label": "$var87"
+  },
+  {
+    "name": "format_pretty_time",
+    "arguments": {
+      "duration_seconds": "12345"
+    },
+    "label": "$var88"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "50",
+      "arg_1": "25"
+    },
+    "label": "$var89"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "36",
+      "arg_1": "19"
+    },
+    "label": "$var90"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "30",
+      "arg_1": "40"
+    },
+    "label": "$var91"
+  },
+  {
+    "name": "divide",
+    "arguments": {
+      "arg_0": "360, arg_1=45)subtract(arg_0=140",
+      "arg_1": "divide(arg_0=360, arg_1=45)"
+    },
+    "label": "$var92"
+  },
+  {
+    "name": "reverse_vowels",
+    "arguments": {
+      "string": "\"Hello"
+    },
+    "label": "$var93"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "50",
+      "arg_1": "4"
+    },
+    "label": "$var94"
+  },
+  {
+    "name": "speed",
+    "arguments": {
+      "arg_0": "110",
+      "arg_1": "30"
+    },
+    "label": "$var95"
+  },
+  {
+    "name": "divide",
+    "arguments": {
+      "arg_0": "12",
+      "arg_1": "2"
+    },
+    "label": "$var96"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "16",
+      "arg_1": "n"
+    },
+    "label": "$var97"
+  },
+  {
+    "name": "get_letters",
+    "arguments": {
+      "string": "'Hello World'"
+    },
+    "label": "$var98"
+  },
+  {
+    "name": "find_value_in_nested_dictionary",
+    "arguments": {
+      "dict": "{'key1': 'value1', 'key2': 'value2'}, value='value1')generate_uuid_from_string(string='key1'"
+    },
+    "label": "$var99"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "1/2",
+      "arg_1": "1/2"
+    },
+    "label": "$var100"
+  },
+  {
+    "name": "subtract",
+    "arguments": {},
+    "label": "$var101"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "4000",
+      "arg_1": "75"
+    },
+    "label": "$var102"
+  },
+  {
+    "name": "best_round",
+    "arguments": {
+      "n": "100)time_format_convert_d2h(seconds=100"
+    },
+    "label": "$var103"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "6400, arg_1=4700)divide(arg_0=6400",
+      "arg_1": "4700"
+    },
+    "label": "$var104"
+  },
+  {
+    "name": "multiply",
+    "arguments": {
+      "arg_0": "4",
+      "arg_1": "75"
+    },
+    "label": "$var105"
+  },
+  {
+    "name": "multiply",
+    "arguments": {},
+    "label": "$var106"
+  },
+  {
+    "name": "subtract",
+    "arguments": {},
+    "label": "$var107"
+  },
+  {
+    "name": "initialize_list",
+    "arguments": {
+      "rows": "3",
+      "cols": "4",
+      "val": "0"
+    },
+    "label": "$var108"
+  },
+  {
+    "name": "json_to_nested_dict",
+    "arguments": {
+      "json_string": "'{\"1\": \"a\", \"2\": \"b\", \"3\": \"c\"}')swap_dictionary(dictionary={1: 'a'"
+    },
+    "label": "$var109"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "30",
+      "arg_1": "20"
+    },
+    "label": "$var110"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "150",
+      "arg_1": "divide(arg_0=3*100+4*150, arg_1=3+4)"
+    },
+    "label": "$var111"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "6000",
+      "arg_1": "multiply(arg_0=0.55, arg_1=6000)"
+    },
+    "label": "$var112"
+  },
+  {
+    "name": "square_perimeter",
+    "arguments": {
+      "arg_0": "2"
+    },
+    "label": "$var113"
+  },
+  {
+    "name": "maxSubarraySum",
+    "arguments": {
+      "nums": "[1, 2, 3, 4, 5])convert_reversed(n = 12345"
+    },
+    "label": "$var114"
+  },
+  {
+    "name": "choose",
+    "arguments": {
+      "arg_0": "10",
+      "arg_1": "2"
+    },
+    "label": "$var115"
+  },
+  {
+    "name": "group_random_subsets",
+    "arguments": {
+      "numbers": "[1, 2, 3, 4, 5, 6, 7, 8, 9, 10], k=3)get_branch_url(repo='my_repo', branch='main')decode_string_or_bytes(input_value='https://github.com/my_repo/tree/main'"
+    },
+    "label": "$var116"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "8",
+      "arg_1": "k + 8"
+    },
+    "label": "$var117"
+  },
+  {
+    "name": "gen_random_str_with_lower_case",
+    "arguments": {
+      "n": "10"
+    },
+    "label": "$var118"
+  },
+  {
+    "name": "compute_area_circle",
+    "arguments": {
+      "radius": "5)info(name='John'",
+      "age": "compute_area_circle(radius=5)"
+    },
+    "label": "$var119"
+  },
+  {
+    "name": "lcm",
+    "arguments": {},
+    "label": "$var120"
+  },
+  {
+    "name": "compute_mean",
+    "arguments": {
+      "two_d_list": "[[1, 2, 3], [4, 5, 6], [7, 8, 9]])modular_exponentiation(a=mean(two_d_list=[[1, 2, 3], [4, 5, 6], [7, 8, 9]])",
+      "b": "2",
+      "c": "3"
+    },
+    "label": "$var121"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "50",
+      "arg_1": "18"
+    },
+    "label": "$var122"
+  },
+  {
+    "name": "subtract",
+    "arguments": {},
+    "label": "$var123"
+  },
+  {
+    "name": "parse_string_field",
+    "arguments": {
+      "input_string": "'field_1=value_1'",
+      "field_name": "'field_1'"
+    },
+    "label": "$var124"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "2030",
+      "arg_1": "1218"
+    },
+    "label": "$var125"
+  },
+  {
+    "name": "circle_area",
+    "arguments": {
+      "arg_0": "7"
+    },
+    "label": "$var126"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "6*4",
+      "arg_1": "6*10"
+    },
+    "label": "$var127"
+  },
+  {
+    "name": "modified_string",
+    "arguments": {
+      "text": "\"Hello, World!\")hmac_sha256(message=\"Hello",
+      "secret": "\"secret\""
+    },
+    "label": "$var128"
+  },
+  {
+    "name": "find_minimum_distance",
+    "arguments": {
+      "points": "[[1"
+    },
+    "label": "$var129"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "1216",
+      "arg_1": "0.24"
+    },
+    "label": "$var130"
+  },
+  {
+    "name": "lcm",
+    "arguments": {
+      "arg_0": "15, arg_1=20)lcm(arg_0=15",
+      "arg_1": "15"
+    },
+    "label": "$var131"
+  },
+  {
+    "name": "date_format",
+    "arguments": {
+      "s": "\"2022-01-01\")count_differences(str1=\"Hello",
+      "str2": "\"Hello"
+    },
+    "label": "$var132"
+  },
+  {
+    "name": "get_year",
+    "arguments": {
+      "date": "'12/05/2022')check_integer(value=2022)circle_perimeter(radius=2022"
+    },
+    "label": "$var133"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "3, arg_1=15)divide(arg_0=15",
+      "arg_1": "2"
+    },
+    "label": "$var134"
+  },
+  {
+    "name": "simple_interest",
+    "arguments": {
+      "principal": "10000",
+      "rate": "7",
+      "time": "12"
+    },
+    "label": "$var135"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "15",
+      "arg_1": "300"
+    },
+    "label": "$var136"
+  },
+  {
+    "name": "speed",
+    "arguments": {
+      "arg_0": "5, arg_1=60)speed(arg_0=20",
+      "arg_1": "20"
+    },
+    "label": "$var137"
+  },
+  {
+    "name": "convert_arch",
+    "arguments": {
+      "arch": "'x86_64'"
+    },
+    "label": "$var138"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "30",
+      "arg_1": "20"
+    },
+    "label": "$var139"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "190",
+      "arg_1": "1"
+    },
+    "label": "$var140"
+  },
+  {
+    "name": "subtract",
+    "arguments": {},
+    "label": "$var141"
+  },
+  {
+    "name": "convert_to_url_slug",
+    "arguments": {
+      "text": "'cluster1.service1'"
+    },
+    "label": "$var142"
+  },
+  {
+    "name": "extract_usernames",
+    "arguments": {
+      "messages": "['User: Alice'"
+    },
+    "label": "$var143"
+  },
+  {
+    "name": "gcd",
+    "arguments": {},
+    "label": "$var144"
+  },
+  {
+    "name": "speed",
+    "arguments": {
+      "arg_0": "100",
+      "arg_1": "60"
+    },
+    "label": "$var145"
+  },
+  {
+    "name": "parse_compound_string",
+    "arguments": {
+      "s": "'a.b.c.d'"
+    },
+    "label": "$var146"
+  },
+  {
+    "name": "subtract",
+    "arguments": {},
+    "label": "$var147"
+  },
+  {
+    "name": "add",
+    "arguments": {
+      "arg_0": "33",
+      "arg_1": "-7"
+    },
+    "label": "$var148"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "-2",
+      "arg_1": "4"
+    },
+    "label": "$var149"
+  },
+  {
+    "name": "level",
+    "arguments": {
+      "number": "123.456",
+      "level": "0.1"
+    },
+    "label": "$var150"
+  },
+  {
+    "name": "calculate_diameter",
+    "arguments": {
+      "radius": "5"
+    },
+    "label": "$var151"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "180",
+      "arg_1": "170"
+    },
+    "label": "$var152"
+  },
+  {
+    "name": "factorial",
+    "arguments": {
+      "arg_0": "11)factorial(arg_0=8)multiply(arg_0=factorial(arg_0=11)",
+      "arg_1": "factorial(arg_0=8)"
+    },
+    "label": "$var153"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "75",
+      "arg_1": "65"
+    },
+    "label": "$var154"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50, arg_1=40)subtract(arg_0=50",
+      "arg_1": "40"
+    },
+    "label": "$var155"
+  },
+  {
+    "name": "sum_unique_values",
+    "arguments": {
+      "lst": "[1"
+    },
+    "label": "$var156"
+  },
+  {
+    "name": "log",
+    "arguments": {},
+    "label": "$var157"
+  },
+  {
+    "name": "rectangle_area",
+    "arguments": {
+      "arg_0": "2/3",
+      "arg_1": "1/6"
+    },
+    "label": "$var158"
+  },
+  {
+    "name": "random_string",
+    "arguments": {
+      "n": "10"
+    },
+    "label": "$var159"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "800",
+      "arg_1": "multiply(arg_0=44, arg_1=28)"
+    },
+    "label": "$var160"
+  },
+  {
+    "name": "bit_length",
+    "arguments": {
+      "n": "100"
+    },
+    "label": "$var161"
+  },
+  {
+    "name": "largest_element_in_heap",
+    "arguments": {
+      "heap": "[10, 20, 30, 40, 50])convert_decibel_to_linear(x_decibel=10"
+    },
+    "label": "$var162"
+  },
+  {
+    "name": "parse_parameters",
+    "arguments": {
+      "params_string": "'key1=value1",
+      "key2": "value2",
+      "key3": "value3'"
+    },
+    "label": "$var163"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "600, arg_1=15)subtract(arg_0=400",
+      "arg_1": "7"
+    },
+    "label": "$var164"
+  },
+  {
+    "name": "add_indent",
+    "arguments": {
+      "text": "'Hello, World!', level=4)hash_json(obj='Hello"
+    },
+    "label": "$var165"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "1",
+      "arg_1": "0.6666666666666666"
+    },
+    "label": "$var166"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "2000, arg_1=150)multiply(arg_0=2000",
+      "arg_1": "2"
+    },
+    "label": "$var167"
+  },
+  {
+    "name": "divide",
+    "arguments": {},
+    "label": "$var168"
+  },
+  {
+    "name": "my_int",
+    "arguments": {
+      "string_num": "'123')divide_without_div_operator(dividend=123",
+      "divisor": "5"
+    },
+    "label": "$var169"
+  },
+  {
+    "name": "fix_tex_maths",
+    "arguments": {
+      "text": "\"hello world\""
+    },
+    "label": "$var170"
+  },
+  {
+    "name": "find_nth_smallest",
+    "arguments": {
+      "nums": "[1, 2, 3, 4, 5, 6, 7, 8, 9, 10], n=5)zeroes_to_binary(n=5)count_leading_and_trailing_spaces(s='00000'"
+    },
+    "label": "$var171"
+  },
+  {
+    "name": "sum_of_elements",
+    "arguments": {
+      "lst": "[1"
+    },
+    "label": "$var172"
+  },
+  {
+    "name": "replace_with_target",
+    "arguments": {
+      "src_list": "[1, 0, 1, 0, 1], target=0, replacement=2)group_zeros_and_ones(input_list=[1"
+    },
+    "label": "$var173"
+  },
+  {
+    "name": "inverse",
+    "arguments": {
+      "arg_0": "1"
+    },
+    "label": "$var174"
+  },
+  {
+    "name": "random_alphanumeric_string",
+    "arguments": {
+      "length": "10)chunked(string='abcdefghij'",
+      "chunk_size": "2"
+    },
+    "label": "$var175"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "20*12",
+      "arg_1": "10*52"
+    },
+    "label": "$var176"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "97",
+      "arg_1": "4"
+    },
+    "label": "$var177"
+  },
+  {
+    "name": "multiply",
+    "arguments": {},
+    "label": "$var178"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "300",
+      "arg_1": "100"
+    },
+    "label": "$var179"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "0.7*120",
+      "arg_1": "0.35*200"
+    },
+    "label": "$var180"
+  },
+  {
+    "name": "add",
+    "arguments": {},
+    "label": "$var181"
+  },
+  {
+    "name": "get_euro_date",
+    "arguments": {
+      "date_str": "'12/31/2022')pad_string_left(s='12/31/2022'",
+      "n": "15"
+    },
+    "label": "$var182"
+  },
+  {
+    "name": "convert_to_ascii_codes",
+    "arguments": {
+      "text": "\"Hello"
+    },
+    "label": "$var183"
+  },
+  {
+    "name": "format_directory",
+    "arguments": {
+      "directory_path": "'/home/user/documents'"
+    },
+    "label": "$var184"
+  },
+  {
+    "name": "max_number",
+    "arguments": {
+      "arg_0": "[3"
+    },
+    "label": "$var185"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "24",
+      "arg_1": "-26"
+    },
+    "label": "$var186"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "George's money",
+      "arg_1": "0.05*George's money"
+    },
+    "label": "$var187"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "16",
+      "arg_1": "2"
+    },
+    "label": "$var188"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "1365",
+      "arg_1": "30"
+    },
+    "label": "$var189"
+  },
+  {
+    "name": "subtract",
+    "arguments": {},
+    "label": "$var190"
+  },
+  {
+    "name": "round_to_bin_edge",
+    "arguments": {
+      "value": "10",
+      "bin_edges": "[0"
+    },
+    "label": "$var191"
+  },
+  {
+    "name": "special_formula",
+    "arguments": {
+      "x": "3",
+      "y": "4"
+    },
+    "label": "$var192"
+  },
+  {
+    "name": "permutation",
+    "arguments": {},
+    "label": "$var193"
+  },
+  {
+    "name": "square_edge_by_area",
+    "arguments": {
+      "arg_0": "5625)square_perimeter(arg_0=square_edge_by_area(arg_0=5625))multiply(arg_0=square_perimeter(arg_0=square_edge_by_area(arg_0=5625))",
+      "arg_1": "14"
+    },
+    "label": "$var194"
+  },
+  {
+    "name": "camel_case_to_underscore",
+    "arguments": {
+      "s": "'helloWorld')contains_value(lst=[1",
+      "value": "3"
+    },
+    "label": "$var195"
+  },
+  {
+    "name": "crossover_uniform",
+    "arguments": {
+      "parent1": "[1",
+      "parent2": "[4"
+    },
+    "label": "$var196"
+  },
+  {
+    "name": "divide",
+    "arguments": {},
+    "label": "$var197"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "50",
+      "arg_1": "divide(arg_0=50, arg_1=5)"
+    },
+    "label": "$var198"
+  },
+  {
+    "name": "multiply",
+    "arguments": {
+      "arg_0": "15",
+      "arg_1": "2"
+    },
+    "label": "$var199"
+  },
+  {
+    "name": "is_alphabetically_sorted",
+    "arguments": {
+      "list_of_strings": "['Hello'"
+    },
+    "label": "$var200"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "36",
+      "arg_1": "10"
+    },
+    "label": "$var201"
+  },
+  {
+    "name": "dB_to_linear",
+    "arguments": {
+      "dB": "10"
+    },
+    "label": "$var202"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "-4",
+      "arg_1": "11"
+    },
+    "label": "$var203"
+  },
+  {
+    "name": "geometric",
+    "arguments": {
+      "a": "2",
+      "r": "3",
+      "n": "5"
+    },
+    "label": "$var204"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "300",
+      "arg_1": "multiply(arg_0=0.3, arg_1=1)"
+    },
+    "label": "$var205"
+  },
+  {
+    "name": "subtract",
+    "arguments": {},
+    "label": "$var206"
+  },
+  {
+    "name": "parse_string_to_floats",
+    "arguments": {
+      "string": "'1.2, 3.4, 5.6, 7.8, 9.0')unique_substring(s='1.2"
+    },
+    "label": "$var207"
+  },
+  {
+    "name": "divide",
+    "arguments": {
+      "arg_0": "875233, arg_1=899)multiply(arg_0=divide(arg_0=875233, arg_1=899)",
+      "arg_1": "899"
+    },
+    "label": "$var208"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "650",
+      "arg_1": "30"
+    },
+    "label": "$var209"
+  },
+  {
+    "name": "create_square_tensor",
+    "arguments": {
+      "n": "5)calculate_mean_of_array(array=[[1, 2], [3, 4]])remove_character(s=\"banana\", c=\"a\")convert_time_to_list(time=\"12:34:56\""
+    },
+    "label": "$var210"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "1080",
+      "arg_1": "750"
+    },
+    "label": "$var211"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "8",
+      "arg_1": "2"
+    },
+    "label": "$var212"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "300",
+      "arg_1": "300*0.25"
+    },
+    "label": "$var213"
+  },
+  {
+    "name": "add_commas_to_string",
+    "arguments": {
+      "s": "'Hello"
+    },
+    "label": "$var214"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "55",
+      "arg_1": "20"
+    },
+    "label": "$var215"
+  },
+  {
+    "name": "clean_column_names",
+    "arguments": {
+      "column_name": "'Column 1')count_differences(str1='column_1'",
+      "str2": "clean_column_names(column_name='Column 1')"
+    },
+    "label": "$var216"
+  },
+  {
+    "name": "subtract",
+    "arguments": {},
+    "label": "$var217"
+  },
+  {
+    "name": "chunked",
+    "arguments": {
+      "string": "'Hello, World!', chunk_size=5)join_with_spaces(parameters=['Hello'"
+    },
+    "label": "$var218"
+  },
+  {
+    "name": "integer_list_to_string",
+    "arguments": {
+      "integer_list": "[1, 2, 3, 4, 5])normalize_string(s='Hello"
+    },
+    "label": "$var219"
+  },
+  {
+    "name": "square_perimeter",
+    "arguments": {
+      "side_length": "8)multiply(arg_0=8",
+      "arg_1": "58"
+    },
+    "label": "$var220"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "70",
+      "arg_1": "divide(arg_0=70, arg_1=0.05)"
+    },
+    "label": "$var221"
+  },
+  {
+    "name": "string_replace",
+    "arguments": {
+      "input_string": "'I like to eat _ on Sundays'",
+      "from_str": "'apple'",
+      "to_str": "'orange'"
+    },
+    "label": "$var222"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "100",
+      "arg_1": "7+8"
+    },
+    "label": "$var223"
+  },
+  {
+    "name": "subtract",
+    "arguments": {
+      "arg_0": "19000",
+      "arg_1": "divide(arg_0=19000, arg_1=2)"
+    },
+    "label": "$var224"
+  },
+  {
+    "name": "remove_punctuation_and_lowercase",
+    "arguments": {
+      "string": "\"Hello"
+    },
+    "label": "$var225"
+  },
+  {
+    "name": "sinh",
+    "arguments": {
+      "x": "1.5"
+    },
+    "label": "$var226"
+  },
+  {
+    "name": "sort_string_of_ints",
+    "arguments": {
+      "input_string": "\"1"
+    },
+    "label": "$var227"
+  },
+  {
+    "name": "compute_cumulative_sum",
+    "arguments": {
+      "nums": "[1, 2, 3, 4, 5])convert_to_printable_str(input_list=[1"
+    },
+    "label": "$var228"
+  },
+  {
+    "name": "multiply",
+    "arguments": {
+      "arg_0": "12",
+      "arg_1": "124"
+    },
+    "label": "$var229"
+  },
+  {
+    "name": "scale_linearly",
+    "arguments": {
+      "lst": "[1",
+      "scale": "2"
+    },
+    "label": "$var230"
+  }
+]
