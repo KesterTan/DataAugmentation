@@ -57,9 +57,10 @@ for sample in tqdm(data, desc="Running inference"):
     
     system = "You are an AI programming assistant, utilizing the Gorilla LLM model, developed by Gorilla LLM, and you only answer questions related to computer science. For politically sensitive questions, security and privacy issues, and other non-computer science questions, you will refuse to answer."
 
-    prompt_text = (
-        "{system}\n### Instruction: <<question>> " + prompt.strip() +       
-        "\n### Response:"                      
+    prompt
+    prompt_text = (prompt.strip()
+        # "{system}\n### Instruction: <<question>> " + prompt.strip() +       
+        # "\n### Response:"                      
     )
     """
     prompt_text = (
