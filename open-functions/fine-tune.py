@@ -3,6 +3,9 @@ import torch
 from peft import prepare_model_for_kbit_training, LoraConfig, get_peft_model
 from datasets import load_dataset
 
+import os
+os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
+
 model_name = "gorilla-llm/gorilla-openfunctions-v2"
 
 tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
