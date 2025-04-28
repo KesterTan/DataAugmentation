@@ -8,11 +8,11 @@ with open(input_path, "r") as f:
     data = json.load(f)
 
 # Extract the last 360 entries
-rest = data[-360:]
+rest = data[-361:]
 # rest = data[:-360]
 
 # Path to the output JSON file
-output_path = "updated_last_360.json"
+output_path = "split_original_last360.json"
 
 # Save the last 360 entries to a new file
 with open(output_path, "w") as f:
