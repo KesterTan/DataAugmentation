@@ -9,7 +9,6 @@ print(torch.cuda.is_available())       # Should be True
 print(torch.cuda.get_device_name(0))    # Should show 'A10G'
 print(bnb.functional.lib)              # Should NOT error
 
-
 # --- Settings ---
 model_name = "gorilla-llm/gorilla-openfunctions-v2"
 dataset_path = "../fine-tuning/first_1500_entries-first-fixed-serialized.jsonl"
@@ -62,7 +61,7 @@ tokenized_dataset = dataset.map(tokenize, remove_columns=dataset.column_names, b
 
 # --- Training arguments ---
 training_args = TrainingArguments(
-    output_dir="./results",
+    output_dir="./results-v2",
     per_device_train_batch_size=1,
     gradient_accumulation_steps=16,
     learning_rate=2e-4,
@@ -90,5 +89,5 @@ trainer = Trainer(
 trainer.train()
 
 # --- Save model and tokenizer ---
-model.save_pretrained("fine-tuned-gorilla")
-tokenizer.save_pretrained("fine-tuned-gorilla")
+model.save_pretrained("fine-tuned-gorilla-v2")
+tokenizer.save_pretrained("fine-tuned-gorilla-v2")
