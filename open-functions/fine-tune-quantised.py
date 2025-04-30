@@ -55,7 +55,7 @@ dataset = load_dataset("json", data_files=dataset_path, split="train")
 # --- Tokenization function ---
 def tokenize(example):
     prompt = example["code"]
-    model_inputs = tokenizer(prompt, max_length=4096, padding="max_length", truncation=True)
+    model_inputs = tokenizer(prompt, padding="max_length", truncation=True)
     model_inputs["labels"] = model_inputs["input_ids"].copy()
     return model_inputs
 
