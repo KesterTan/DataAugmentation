@@ -42,7 +42,6 @@ lora_config = LoraConfig(
     bias="none",
     task_type="CAUSAL_LM",
     target_modules=["q_proj", "v_proj", "k_proj", "o_proj", "up_proj", "down_proj", "gate_proj"],
-    max_position_embeddings=8912,
     rope_scaling={"type": "linear", "factor": 2.0}
 )
 model = get_peft_model(model, lora_config)
