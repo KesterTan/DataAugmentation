@@ -1,6 +1,6 @@
 from transformers import AutoModelForCausalLM, AutoTokenizer, TrainingArguments, Trainer, BitsAndBytesConfig, AutoConfig
 import torch
-from peft import prepare_model_for_kbit_training,LongLoraConfig, get_peft_model
+from peft import prepare_model_for_kbit_training, get_peft_model, LoraConfig
 from datasets import load_dataset
 import bitsandbytes as bnb
 
@@ -35,7 +35,7 @@ model = AutoModelForCausalLM.from_pretrained(
 model = prepare_model_for_kbit_training(model)
 
 # --- Apply LoRA ---
-lora_config = LongLoraConfig(
+lora_config = LoraConfig(
     r=16,
     lora_alpha=64,
     lora_dropout=0.1,
