@@ -72,7 +72,7 @@ class SparseAttention(nn.Module):
         attn_output = torch.matmul(attn_weights, value)
 
         attn_output = attn_output.transpose(1, 2).contiguous().view(bsz, seq_len, self.hidden_size)
-        return self.o_proj(attn_output)
+        return self.o_proj(attn_output), None
 
 def patch_model_with_sparse_attention(model):
     for name, module in model.model.named_modules():
