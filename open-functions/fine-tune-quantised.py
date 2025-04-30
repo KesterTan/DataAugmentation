@@ -1,6 +1,6 @@
 from transformers import AutoModelForCausalLM, AutoTokenizer, TrainingArguments, Trainer, BitsAndBytesConfig
 import torch
-from peft import prepare_model_for_kbit_training, LoraConfig, get_peft_model
+from peft import prepare_model_for_kbit_training,LongLoraConfig, get_peft_model
 from datasets import load_dataset
 import bitsandbytes as bnb
 
@@ -8,6 +8,7 @@ print(torch.__version__)              # Should be like '2.1.0' or '2.2.0'
 print(torch.cuda.is_available())       # Should be True
 print(torch.cuda.get_device_name(0))    # Should show 'A10G'
 print(bnb.functional.lib)              # Should NOT error
+
 
 # --- Settings ---
 model_name = "gorilla-llm/gorilla-openfunctions-v2"
@@ -35,13 +36,15 @@ model = AutoModelForCausalLM.from_pretrained(
 model = prepare_model_for_kbit_training(model)
 
 # --- Apply LoRA ---
-lora_config = LoraConfig(
+lora_config = LongLoraConfig(
     r=16,
     lora_alpha=64,
     lora_dropout=0.1,
     bias="none",
     task_type="CAUSAL_LM",
-    target_modules=["q_proj", "v_proj", "k_proj", "o_proj", "up_proj", "down_proj", "gate_proj"]
+    target_modules=["q_proj", "v_proj", "k_proj", "o_proj", "up_proj", "down_proj", "gate_proj"],
+    max_position_embeddings=4096,
+    rope_scaling={"type": "linear", "factor": 2.0}  # Important for true LongLoRA
 )
 model = get_peft_model(model, lora_config)
 model.print_trainable_parameters()
@@ -61,7 +64,7 @@ tokenized_dataset = dataset.map(tokenize, remove_columns=dataset.column_names, b
 
 # --- Training arguments ---
 training_args = TrainingArguments(
-    output_dir="./results-v2",
+    output_dir="./results",
     per_device_train_batch_size=1,
     gradient_accumulation_steps=16,
     learning_rate=2e-4,
@@ -89,5 +92,5 @@ trainer = Trainer(
 trainer.train()
 
 # --- Save model and tokenizer ---
-model.save_pretrained("fine-tuned-gorilla-v2")
-tokenizer.save_pretrained("fine-tuned-gorilla-v2")
+model.save_pretrained("fine-tuned-gorilla")
+tokenizer.save_pretrained("fine-tuned-gorilla")

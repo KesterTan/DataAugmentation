@@ -50,7 +50,7 @@ model.eval()
 # I/O paths
 # ────────────────────────────────────────────────────────────────────
 input_json_path  = "../in-context-eval/last_360_entries.json"
-output_json_path = "../in-context-eval_results-fine-tune.json"
+output_json_path = "../in-context-eval_results-fine-tune-v2.json"
 
 with open(input_json_path, "r") as f:
     data = json.load(f)
@@ -90,7 +90,6 @@ for sample in tqdm(data, desc="Running inference"):
     answer_text = tokenizer.decode(answer_ids, skip_special_tokens=True)
 
     outputs.append({"input": prompt, "output": answer_text})
-
 # ────────────────────────────────────────────────────────────────────
 # Save results
 # ────────────────────────────────────────────────────────────────────
