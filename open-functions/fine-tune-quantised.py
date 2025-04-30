@@ -1,14 +1,8 @@
-from transformers import AutoModelForCausalLM, AutoTokenizer, TrainingArguments, Trainer, BitsAndBytesConfig
+from transformers import AutoModelForCausalLM, AutoTokenizer, TrainingArguments, Trainer, BitsAndBytesConfig, AutoConfig
 import torch
 from peft import prepare_model_for_kbit_training,LongLoraConfig, get_peft_model
 from datasets import load_dataset
 import bitsandbytes as bnb
-
-print(torch.__version__)              # Should be like '2.1.0' or '2.2.0'
-print(torch.cuda.is_available())       # Should be True
-print(torch.cuda.get_device_name(0))    # Should show 'A10G'
-print(bnb.functional.lib)              # Should NOT error
-
 
 # --- Settings ---
 model_name = "gorilla-llm/gorilla-openfunctions-v2"
@@ -25,11 +19,16 @@ bnb_config = BitsAndBytesConfig(
     bnb_4bit_quant_type="nf4",
 )
 
+config = AutoConfig.from_pretrained(model_name, trust_remote_code=True)
+config.max_position_embeddings = 8912
+config.rope_scaling = {"type": "linear", "factor": 2.0}
+
 model = AutoModelForCausalLM.from_pretrained(
     model_name,
     device_map="auto",
     trust_remote_code=True,
     quantization_config=bnb_config,
+    config=config,
 )
 
 # --- Prepare model for k-bit training ---
@@ -43,8 +42,8 @@ lora_config = LongLoraConfig(
     bias="none",
     task_type="CAUSAL_LM",
     target_modules=["q_proj", "v_proj", "k_proj", "o_proj", "up_proj", "down_proj", "gate_proj"],
-    max_position_embeddings=4096,
-    rope_scaling={"type": "linear", "factor": 2.0}  # Important for true LongLoRA
+    max_position_embeddings=8912,
+    rope_scaling={"type": "linear", "factor": 2.0}
 )
 model = get_peft_model(model, lora_config)
 model.print_trainable_parameters()
