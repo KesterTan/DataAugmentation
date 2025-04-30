@@ -51,10 +51,12 @@ class SparseAttention(nn.Module):
         self.k_proj = original_attn.k_proj
         self.v_proj = original_attn.v_proj
         self.o_proj = original_attn.o_proj
-        self.hidden_size = original_attn.hidden_size
-        self.num_heads = original_attn.num_heads
-        self.head_dim = self.hidden_size // self.num_heads
         self.window_size = window_size
+
+        # Infer dimensions from q_proj weight
+        self.hidden_size = self.q_proj.out_features
+        self.num_heads = getattr(original_attn, "num_heads", 32)  # fallback default
+        self.head_dim = self.hidden_size // self.num_heads
 
     def forward(self, hidden_states, attention_mask=None, **kwargs):
         bsz, seq_len, _ = hidden_states.size()
@@ -65,6 +67,7 @@ class SparseAttention(nn.Module):
         attn_scores = torch.matmul(query, key.transpose(-2, -1)) / math.sqrt(self.head_dim)
         sparse_mask = create_sliding_window_mask(seq_len, self.window_size).to(attn_scores.device)
         attn_scores = attn_scores + sparse_mask.unsqueeze(0).unsqueeze(0)
+
         attn_weights = torch.nn.functional.softmax(attn_scores, dim=-1)
         attn_output = torch.matmul(attn_weights, value)
 
