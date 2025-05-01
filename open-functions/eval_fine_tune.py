@@ -16,7 +16,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 # Hugging Face model name
 base_model_name = "gorilla-llm/gorilla-openfunctions-v2"
 
-adapter_model_path = "./fine-tuned-gorilla"
+adapter_model_path = "./fine-tuned-gorilla-long-shifted"
 
 bnb_config = BitsAndBytesConfig(
     load_in_4bit=True,
@@ -50,7 +50,7 @@ model.eval()
 # I/O paths
 # ────────────────────────────────────────────────────────────────────
 input_json_path  = "../in-context-eval/last_360_entries.json"
-output_json_path = "../in-context-eval_results-fine-tune-v2.json"
+output_json_path = "../in-context-eval_results-fine-tune-shifted.json"
 
 with open(input_json_path, "r") as f:
     data = json.load(f)
