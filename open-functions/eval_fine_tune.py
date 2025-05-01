@@ -8,14 +8,9 @@ from transformers import (
 from peft import PeftModel
 from tqdm import tqdm
 
-# ────────────────────────────────────────────────────────────────────
-# Model & quantization setup
-# ────────────────────────────────────────────────────────────────────
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-# Hugging Face model name
 base_model_name = "gorilla-llm/gorilla-openfunctions-v2"
-
 adapter_model_path = "./fine-tuned-gorilla-long-shifted"
 
 bnb_config = BitsAndBytesConfig(
@@ -30,7 +25,7 @@ tokenizer = AutoTokenizer.from_pretrained(
     trust_remote_code=True
 )
 
-# Load base model with 4-bit quantization
+# load base model with 4-bit quantization
 model = AutoModelForCausalLM.from_pretrained(
     base_model_name,
     quantization_config=bnb_config,
@@ -38,7 +33,7 @@ model = AutoModelForCausalLM.from_pretrained(
     trust_remote_code=True
 )
 
-# Load adapter weights (LoRA) on top of base model
+# load adapter weights (LoRA) on top of base model
 model = PeftModel.from_pretrained(
     model,
     adapter_model_path,
@@ -46,18 +41,12 @@ model = PeftModel.from_pretrained(
 )
 model.eval()
 
-# ────────────────────────────────────────────────────────────────────
-# I/O paths
-# ────────────────────────────────────────────────────────────────────
 input_json_path  = "../in-context-eval/last_360_entries.json"
 output_json_path = "../in-context-eval_results-fine-tune-shifted.json"
 
 with open(input_json_path, "r") as f:
     data = json.load(f)
 
-# ────────────────────────────────────────────────────────────────────
-# Inference loop
-# ────────────────────────────────────────────────────────────────────
 outputs = []
 
 for sample in tqdm(data, desc="Running inference"):
@@ -90,9 +79,7 @@ for sample in tqdm(data, desc="Running inference"):
     answer_text = tokenizer.decode(answer_ids, skip_special_tokens=True)
 
     outputs.append({"input": prompt, "output": answer_text})
-# ────────────────────────────────────────────────────────────────────
-# Save results
-# ────────────────────────────────────────────────────────────────────
+    
 with open(output_json_path, "w") as f:
     json.dump(outputs, f, indent=2)
 

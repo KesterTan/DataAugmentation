@@ -4,7 +4,7 @@ input_path = "display-all-training-data.json"
 with open(input_path, "r") as f:
     data = json.load(f)
 
-# Extract the last 360 entries (or first 1500)
+# extract the last 360 entries (or first 1500)
 rest = data[-361:]
 # rest = data[:-360]
 

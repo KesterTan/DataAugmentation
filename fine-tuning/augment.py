@@ -1,4 +1,3 @@
-# Re-define constants and retry safely ensuring variables exist
 INPUT_FILE = '/mnt/data/display-first-1860-train-rows.json'
 OUTPUT_FILE = '/mnt/data/augmented-1860-custom-explanations.json'
 

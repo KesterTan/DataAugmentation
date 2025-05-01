@@ -1,4 +1,3 @@
-# Reformat one more time to include the instruction's tools appended after the "Now solve" prompt
 finalized_entries = []
 for i in range(0, len(data) - 1, 2):
     example = data[i]
@@ -19,7 +18,7 @@ for i in range(0, len(data) - 1, 2):
     }
     finalized_entries.append(finalized_entry)
 
-# Save to file
+# save to file
 final_output_with_tools_path = "/mnt/data/nested_api_query_augmented_final.json"
 with open(final_output_with_tools_path, "w") as f:
     json.dump(finalized_entries, f, indent=2)
