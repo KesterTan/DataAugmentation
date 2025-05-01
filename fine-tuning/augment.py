@@ -1,6 +1,8 @@
-# Re-define constants and retry safely ensuring variables exist
-INPUT_FILE = '/mnt/data/display-first-1860-train-rows.json'
-OUTPUT_FILE = '/mnt/data/augmented-1860-custom-explanations.json'
+import json
+import ast
+
+INPUT_FILE = 'display-first-1860-train-rows.json'
+OUTPUT_FILE = 'augmented-1860-custom-explanations.json'
 
 def safe_load(s):
     try:
@@ -70,5 +72,4 @@ for row in raw_rows:
 with open(OUTPUT_FILE, 'w') as f:
     json.dump(augmented_rows, f, indent=2)
 
-OUTPUT_FILE
-
+print("Saved to", OUTPUT_FILE)
