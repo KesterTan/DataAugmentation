@@ -104,32 +104,3 @@ with open(output_path, "w") as f:
     json.dump(data, f, indent=2)
 
 output_path
-
-    # f1_score(binarizer.transform(real_output),
-    #                                   binarizer.transform(pred_output),
-    #                                   average='macro')
-
-    
-
-
-
-
-
-    # print(response)
-    # index = response.find("import")
-    # print(index)
-    # print("\n")
-    # .split('\\n')
-    # if not index == -1:
-
-
-
-# F1 scores for function names
-
-# F1 scores for parameter name
-
-# Partial Sequence Matching Accuracy
-
-# Full Sequence Matching Accuracy
-
-# Win Rate
