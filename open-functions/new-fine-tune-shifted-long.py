@@ -36,14 +36,6 @@ model = AutoModelForCausalLM.from_pretrained(
 )
 
 # --- Inject Sparse Attention ---
-def create_sliding_window_mask(seq_len, window_size):
-    mask = torch.full((seq_len, seq_len), float("-inf"))
-    for i in range(seq_len):
-        start = max(0, i - window_size)
-        end = min(seq_len, i + window_size + 1)
-        mask[i, start:end] = 0
-    return mask
-
 def create_shifted_window_mask(seq_len, window_size, shift_size):
     mask = torch.full((seq_len, seq_len), float("-inf"))
     for i in range(seq_len):
@@ -81,9 +73,17 @@ class SparseAttention(nn.Module):
 
         attn_output = attn_output.transpose(1, 2).contiguous().view(bsz, seq_len, self.hidden_size)
         return self.o_proj(attn_output), None
+    
+def create_sliding_window_mask(seq_len, window_size):
+    mask = torch.full((seq_len, seq_len), float("-inf"))
+    for i in range(seq_len):
+        start = max(0, i - window_size)
+        end = min(seq_len, i + window_size + 1)
+        mask[i, start:end] = 0
+    return mask
 
 class ShiftedSparseAttention(nn.Module):
-    def __init__(self, original_attn, window_size=128, shift_size=64):
+    def __init__(self, original_attn, window_size=128, shift_size=64, layer_idx=0):
         super().__init__()
         self.q_proj = original_attn.q_proj
         self.k_proj = original_attn.k_proj
@@ -91,39 +91,50 @@ class ShiftedSparseAttention(nn.Module):
         self.o_proj = original_attn.o_proj
         self.window_size = window_size
         self.shift_size = shift_size
+        self.layer_idx = layer_idx
 
         self.hidden_size = self.q_proj.out_features
         self.num_heads = getattr(original_attn, "num_heads", 32)
         self.head_dim = self.hidden_size // self.num_heads
 
-    def forward(self, hidden_states, attention_mask=None, layer_idx=0, **kwargs):
+    def forward(self, hidden_states, attention_mask=None, **kwargs):
         bsz, seq_len, _ = hidden_states.size()
+
+        # Apply shift for odd-numbered layers
+        if self.layer_idx % 2 == 1:
+            hidden_states = torch.roll(hidden_states, shifts=-self.shift_size, dims=1)
+
         query = self.q_proj(hidden_states).view(bsz, seq_len, self.num_heads, self.head_dim).transpose(1, 2)
         key = self.k_proj(hidden_states).view(bsz, seq_len, self.num_heads, self.head_dim).transpose(1, 2)
         value = self.v_proj(hidden_states).view(bsz, seq_len, self.num_heads, self.head_dim).transpose(1, 2)
 
         attn_scores = torch.matmul(query, key.transpose(-2, -1)) / math.sqrt(self.head_dim)
 
-        if layer_idx % 2 == 0:
-            sparse_mask = create_sliding_window_mask(seq_len, self.window_size).to(attn_scores.device)
-        else:
-            sparse_mask = create_shifted_window_mask(seq_len, self.window_size, self.shift_size).to(attn_scores.device)
-
+        # Create and apply sliding window mask
+        sparse_mask = create_sliding_window_mask(seq_len, self.window_size).to(attn_scores.device)
         attn_scores = attn_scores + sparse_mask.unsqueeze(0).unsqueeze(0)
 
         attn_weights = torch.nn.functional.softmax(attn_scores, dim=-1)
         attn_output = torch.matmul(attn_weights, value)
 
         attn_output = attn_output.transpose(1, 2).contiguous().view(bsz, seq_len, self.hidden_size)
+
+        # Reverse shift
+        if self.layer_idx % 2 == 1:
+            attn_output = torch.roll(attn_output, shifts=self.shift_size, dims=1)
+
         return self.o_proj(attn_output), None
 
-def patch_model_with_sparse_attention(model):
+# --- Patch model with Shifted Sparse Attention ---
+def patch_model_with_shifted_sparse_attention(model, window_size=128, shift_size=64):
+    layer_idx = 0
     for name, module in model.model.named_modules():
         if hasattr(module, 'q_proj') and hasattr(module, 'k_proj') and hasattr(module, 'v_proj'):
             parent_module = dict(model.model.named_modules())[name.rsplit('.', 1)[0]] if '.' in name else model.model
-            setattr(parent_module, name.split('.')[-1], SparseAttention(module))
+            setattr(parent_module, name.split('.')[-1], ShiftedSparseAttention(module, window_size, shift_size, layer_idx))
+            layer_idx += 1
 
-patch_model_with_sparse_attention(model)
+patch_model_with_shifted_sparse_attention(model, window_size=128, shift_size=64)
 
 # --- Prepare for k-bit training + apply LoRA ---
 model = prepare_model_for_kbit_training(model)
@@ -154,7 +165,7 @@ tokenized_dataset = dataset.map(tokenize, remove_columns=dataset.column_names, b
 
 # --- Training arguments ---
 training_args = TrainingArguments(
-    output_dir="./results-long",
+    output_dir="./results-long-shifted",
     per_device_train_batch_size=1,
     gradient_accumulation_steps=16,
     learning_rate=2e-4,
@@ -182,5 +193,5 @@ trainer = Trainer(
 trainer.train()
 
 # --- Save model ---
-model.save_pretrained("fine-tuned-gorilla-long")
-tokenizer.save_pretrained("fine-tuned-gorilla-long")
+model.save_pretrained("fine-tuned-gorilla-long-shifted")
+tokenizer.save_pretrained("fine-tuned-gorilla-long-shifted")
