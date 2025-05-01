@@ -52,6 +52,36 @@ def create_shifted_window_mask(seq_len, window_size, shift_size):
         mask[i, start:end] = 0
     return mask
 
+class SparseAttention(nn.Module):
+    def __init__(self, original_attn, window_size=128):
+        super().__init__()
+        self.q_proj = original_attn.q_proj
+        self.k_proj = original_attn.k_proj
+        self.v_proj = original_attn.v_proj
+        self.o_proj = original_attn.o_proj
+        self.window_size = window_size
+
+        # Infer dimensions from q_proj weight
+        self.hidden_size = self.q_proj.out_features
+        self.num_heads = getattr(original_attn, "num_heads", 32)  # fallback default
+        self.head_dim = self.hidden_size // self.num_heads
+
+    def forward(self, hidden_states, attention_mask=None, **kwargs):
+        bsz, seq_len, _ = hidden_states.size()
+        query = self.q_proj(hidden_states).view(bsz, seq_len, self.num_heads, self.head_dim).transpose(1, 2)
+        key = self.k_proj(hidden_states).view(bsz, seq_len, self.num_heads, self.head_dim).transpose(1, 2)
+        value = self.v_proj(hidden_states).view(bsz, seq_len, self.num_heads, self.head_dim).transpose(1, 2)
+
+        attn_scores = torch.matmul(query, key.transpose(-2, -1)) / math.sqrt(self.head_dim)
+        sparse_mask = create_sliding_window_mask(seq_len, self.window_size).to(attn_scores.device)
+        attn_scores = attn_scores + sparse_mask.unsqueeze(0).unsqueeze(0)
+
+        attn_weights = torch.nn.functional.softmax(attn_scores, dim=-1)
+        attn_output = torch.matmul(attn_weights, value)
+
+        attn_output = attn_output.transpose(1, 2).contiguous().view(bsz, seq_len, self.hidden_size)
+        return self.o_proj(attn_output), None
+
 class ShiftedSparseAttention(nn.Module):
     def __init__(self, original_attn, window_size=128, shift_size=64):
         super().__init__()
