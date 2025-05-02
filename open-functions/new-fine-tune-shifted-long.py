@@ -6,14 +6,11 @@ import bitsandbytes as bnb
 import torch.nn as nn
 import math
 
-# --- Settings ---
 model_name = "gorilla-llm/gorilla-openfunctions-v2"
 dataset_path = "../fine-tuning/first_1500_entries-first-fixed-serialized.jsonl"
 
-# --- Load tokenizer ---
 tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
 
-# --- BitsAndBytes config for 4-bit quantization ---
 bnb_config = BitsAndBytesConfig(
     load_in_4bit=True,
     bnb_4bit_compute_dtype=torch.float16,
@@ -21,12 +18,10 @@ bnb_config = BitsAndBytesConfig(
     bnb_4bit_quant_type="nf4",
 )
 
-# --- RoPE Scaling + Long Context Support ---
 config = AutoConfig.from_pretrained(model_name, trust_remote_code=True)
 config.max_position_embeddings = 8912
 config.rope_scaling = {"type": "linear", "factor": 2.0}
 
-# --- Load quantized model ---
 model = AutoModelForCausalLM.from_pretrained(
     model_name,
     device_map="auto",
@@ -35,7 +30,6 @@ model = AutoModelForCausalLM.from_pretrained(
     config=config,
 )
 
-# --- Inject Sparse Attention ---
 def create_shifted_window_mask(seq_len, window_size, shift_size):
     mask = torch.full((seq_len, seq_len), float("-inf"))
     for i in range(seq_len):
@@ -53,7 +47,7 @@ class SparseAttention(nn.Module):
         self.o_proj = original_attn.o_proj
         self.window_size = window_size
 
-        # Infer dimensions from q_proj weight
+        # infer dimensions from q_proj weight
         self.hidden_size = self.q_proj.out_features
         self.num_heads = getattr(original_attn, "num_heads", 32)  # fallback default
         self.head_dim = self.hidden_size // self.num_heads
@@ -100,7 +94,6 @@ class ShiftedSparseAttention(nn.Module):
     def forward(self, hidden_states, attention_mask=None, **kwargs):
         bsz, seq_len, _ = hidden_states.size()
 
-        # Apply shift for odd-numbered layers
         if self.layer_idx % 2 == 1:
             hidden_states = torch.roll(hidden_states, shifts=-self.shift_size, dims=1)
 
@@ -110,7 +103,6 @@ class ShiftedSparseAttention(nn.Module):
 
         attn_scores = torch.matmul(query, key.transpose(-2, -1)) / math.sqrt(self.head_dim)
 
-        # Create and apply sliding window mask
         sparse_mask = create_sliding_window_mask(seq_len, self.window_size).to(attn_scores.device)
         attn_scores = attn_scores + sparse_mask.unsqueeze(0).unsqueeze(0)
 
@@ -119,13 +111,11 @@ class ShiftedSparseAttention(nn.Module):
 
         attn_output = attn_output.transpose(1, 2).contiguous().view(bsz, seq_len, self.hidden_size)
 
-        # Reverse shift
         if self.layer_idx % 2 == 1:
             attn_output = torch.roll(attn_output, shifts=self.shift_size, dims=1)
 
         return self.o_proj(attn_output), None
 
-# --- Patch model with Shifted Sparse Attention ---
 def patch_model_with_shifted_sparse_attention(model, window_size=128, shift_size=64):
     layer_idx = 0
     for name, module in model.model.named_modules():
@@ -136,7 +126,6 @@ def patch_model_with_shifted_sparse_attention(model, window_size=128, shift_size
 
 patch_model_with_shifted_sparse_attention(model, window_size=128, shift_size=64)
 
-# --- Prepare for k-bit training + apply LoRA ---
 model = prepare_model_for_kbit_training(model)
 
 lora_config = LoraConfig(
@@ -151,10 +140,8 @@ lora_config = LoraConfig(
 model = get_peft_model(model, lora_config)
 model.print_trainable_parameters()
 
-# --- Load dataset ---
 dataset = load_dataset("json", data_files=dataset_path, split="train")
 
-# --- Tokenize ---
 def tokenize(example):
     prompt = example["code"]
     model_inputs = tokenizer(prompt, padding="max_length", truncation=True)
@@ -163,7 +150,6 @@ def tokenize(example):
 
 tokenized_dataset = dataset.map(tokenize, remove_columns=dataset.column_names, batched=False)
 
-# --- Training arguments ---
 training_args = TrainingArguments(
     output_dir="./results-long-shifted",
     per_device_train_batch_size=1,
@@ -181,17 +167,13 @@ training_args = TrainingArguments(
     report_to="none",
 )
 
-# --- Trainer ---
 trainer = Trainer(
     model=model,
     args=training_args,
     train_dataset=tokenized_dataset,
     tokenizer=tokenizer,
 )
-
-# --- Train ---
 trainer.train()
 
-# --- Save model ---
 model.save_pretrained("fine-tuned-gorilla-long-shifted")
 tokenizer.save_pretrained("fine-tuned-gorilla-long-shifted")

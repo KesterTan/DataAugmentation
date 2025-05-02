@@ -7,7 +7,7 @@ file_path = Path("display-first-1860-train-rows.json")
 with open(file_path, "r") as file:
     data = json.load(file)
 
-# Transform each record into the required output format
+# transform each record into the required output format
 formatted_data = []
 for idx, row in enumerate(data):
     formatted_data.append({

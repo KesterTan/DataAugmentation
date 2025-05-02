@@ -6,14 +6,11 @@ import bitsandbytes as bnb
 import torch.nn as nn
 import math
 
-# --- Settings ---
 model_name = "gorilla-llm/gorilla-openfunctions-v2"
 dataset_path = "../fine-tuning/first_1500_entries-first-fixed-serialized.jsonl"
 
-# --- Load tokenizer ---
 tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
 
-# --- BitsAndBytes config for 4-bit quantization ---
 bnb_config = BitsAndBytesConfig(
     load_in_4bit=True,
     bnb_4bit_compute_dtype=torch.float16,
@@ -21,12 +18,10 @@ bnb_config = BitsAndBytesConfig(
     bnb_4bit_quant_type="nf4",
 )
 
-# --- RoPE Scaling + Long Context Support ---
 config = AutoConfig.from_pretrained(model_name, trust_remote_code=True)
 config.max_position_embeddings = 8912
 config.rope_scaling = {"type": "linear", "factor": 2.0}
 
-# --- Load quantized model ---
 model = AutoModelForCausalLM.from_pretrained(
     model_name,
     device_map="auto",
@@ -35,7 +30,6 @@ model = AutoModelForCausalLM.from_pretrained(
     config=config,
 )
 
-# --- Inject Sparse Attention ---
 def create_sliding_window_mask(seq_len, window_size):
     mask = torch.full((seq_len, seq_len), float("-inf"))
     for i in range(seq_len):
@@ -53,7 +47,7 @@ class SparseAttention(nn.Module):
         self.o_proj = original_attn.o_proj
         self.window_size = window_size
 
-        # Infer dimensions from q_proj weight
+        # infer dimensions from q_proj weight
         self.hidden_size = self.q_proj.out_features
         self.num_heads = getattr(original_attn, "num_heads", 32)  # fallback default
         self.head_dim = self.hidden_size // self.num_heads
@@ -82,7 +76,6 @@ def patch_model_with_sparse_attention(model):
 
 patch_model_with_sparse_attention(model)
 
-# --- Prepare for k-bit training + apply LoRA ---
 model = prepare_model_for_kbit_training(model)
 
 lora_config = LoraConfig(
@@ -97,10 +90,8 @@ lora_config = LoraConfig(
 model = get_peft_model(model, lora_config)
 model.print_trainable_parameters()
 
-# --- Load dataset ---
 dataset = load_dataset("json", data_files=dataset_path, split="train")
 
-# --- Tokenize ---
 def tokenize(example):
     prompt = example["code"]
     model_inputs = tokenizer(prompt, padding="max_length", truncation=True)
@@ -109,7 +100,6 @@ def tokenize(example):
 
 tokenized_dataset = dataset.map(tokenize, remove_columns=dataset.column_names, batched=False)
 
-# --- Training arguments ---
 training_args = TrainingArguments(
     output_dir="./results-long",
     per_device_train_batch_size=1,
@@ -127,17 +117,13 @@ training_args = TrainingArguments(
     report_to="none",
 )
 
-# --- Trainer ---
 trainer = Trainer(
     model=model,
     args=training_args,
     train_dataset=tokenized_dataset,
     tokenizer=tokenizer,
 )
-
-# --- Train ---
 trainer.train()
 
-# --- Save model ---
 model.save_pretrained("fine-tuned-gorilla-long")
 tokenizer.save_pretrained("fine-tuned-gorilla-long")

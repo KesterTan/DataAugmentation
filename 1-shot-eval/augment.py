@@ -1,11 +1,10 @@
 import json
 
-# Load data from JSON file
 input_path = ""  # Change this path as needed
 with open(input_path, "r") as f:
     data = json.load(f)
 
-# Reformat and append tools after the "Now solve" prompt
+# reformat and append tools after the "Now solve" prompt
 finalized_entries = []
 
 for i in range(0, len(data) - 1, 2):
@@ -28,7 +27,6 @@ for i in range(0, len(data) - 1, 2):
 
     finalized_entries.append(finalized_entry)
 
-# Save to file
 final_output_with_tools_path = "nested_api_query_augmented_final.json"
 with open(final_output_with_tools_path, "w") as f:
     json.dump(finalized_entries, f, indent=2)
