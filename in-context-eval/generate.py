@@ -3,7 +3,7 @@ import pandas as pd
 from pathlib import Path
 
 # Load the JSON file
-file_path = Path("/mnt/data/display-first-1860-train-rows.json")
+file_path = Path("display-first-1860-train-rows.json")
 with open(file_path, "r") as file:
     data = json.load(file)
 
@@ -17,7 +17,7 @@ for idx, row in enumerate(data):
     })
 
 # Save to a JSON file
-output_path = "/mnt/data/augmented_nested_api_questions.json"
+output_path = "augmented_nested_api_questions.json"
 with open(output_path, "w") as f:
     json.dump(formatted_data, f, indent=2)
 
